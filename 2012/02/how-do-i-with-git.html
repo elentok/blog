@@ -6,17 +6,6 @@
   line-height: 1.5;
 }
 
-pre, code {
-  font-family: 'Source Code Pro';
-}
-
-pre {
-  padding: 15px;
-  background-color: #121212;
-  border-radius: 5px;
-  line-height: 1.3;
-}
-
 a, a:visited {
   color: #98adec;
 }
@@ -25,7 +14,7 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><div class="e-post"><h2>How do I ??? with Git?</h2><div><p>The purpose of this post is to quickly go over some of the basic things most developers would require from source control software.</p>
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">How do I ??? with Git?</h1><div class="e-post__date">February 3rd, 2012</div><div class="e-post__body"><p>The purpose of this post is to quickly go over some of the basic things most developers would require from source control software.</p>
 <p>I highly recommend reading either <a href="http://progit.org/book/">Pro Git</a> or <a href="http://book.git-scm.com">Git Community Book</a>.</p>
 <h2 id="undoing-a-commit">Undoing a commit</h2>
 <p>If you committed some code by accident you have the following options:</p>
@@ -33,15 +22,15 @@ a, a:visited {
 <p>If you just forgot a file or wrote the wrong comment, stage your changes and run &quot;git commit --amend&quot;. This will merge the new commit with the previous commit (overriding the old comment).</p>
 <h3 id="undo-option-2-revert">Undo option #2: Revert</h3>
 <p>Revert will create new commit which is the opposite of the commit you wish to remove, for example:</p>
-<pre><code>    $ git log      dfdd917 added file2.txt      fbe043e added file1.txt    $ git revert dfdd917    $ git log      7bdd793 Revert &quot;added file2.txt&quot;      dfdd917 added file2.txt      fbe043e added file1.txt
+<pre><code>    $ git log      dfdd917 <span class="hljs-keyword">added </span>file2.txt      fbe043e <span class="hljs-keyword">added </span>file1.txt    $ git <span class="hljs-keyword">revert </span>dfdd917    $ git log      <span class="hljs-number">7</span>bdd793 <span class="hljs-keyword">Revert </span><span class="hljs-string">"added file2.txt"</span>      dfdd917 <span class="hljs-keyword">added </span>file2.txt      fbe043e <span class="hljs-keyword">added </span>file1.txt
 </code></pre><p>If you already pushed the commit you wish to remove, this would be the best option.</p>
 <p><a name="more"></a></p>
 <h3 id="undo-option-3-reset">Undo option #3: Reset</h3>
 <p>If you want to get rid of the last commit (or several last commits) you can use the &quot;git reset&quot; command which will make the HEAD and the current branch point on the given commit.</p>
-<pre><code>    $ git log      fcd3f55 (HEAD, master) added file3.txt      dfdd917 added file2.txt      fbe043e added file1.txt    $ git reset --hard dfdd917    $ git log      dfdd917 (HEAD, master) added file2.txt      fbe043e added file1.txt
+<pre><code>    $ git log      fcd3f55 (HEAD, master) added file3<span class="hljs-selector-class">.txt</span>      dfdd917 added file2<span class="hljs-selector-class">.txt</span>      fbe043e added file1<span class="hljs-selector-class">.txt</span>    $ git reset --hard dfdd917    $ git log      dfdd917 (HEAD, master) added file2<span class="hljs-selector-class">.txt</span>      fbe043e added file1.txt
 </code></pre><p>You might ask yourself, what happened to the third commit? is it gone forever? well... the answer is no, the commit is still there, it&#39;s just unreachable.</p>
 <p>To see all of the unreachable commits use the &quot;git fsck&quot; command:</p>
-<pre><code>    $ git fsck --unreachable --no-reflogs      unreachable blob a83ffd      unreachable tree 984260      unreachable commit fcd3f5
+<pre><code>    $ git fsck --<span class="hljs-keyword">unreachable</span> --no-reflogs      <span class="hljs-keyword">unreachable</span> blob a<span class="hljs-number">83</span>ffd      <span class="hljs-keyword">unreachable</span> tree <span class="hljs-number">984260</span>      <span class="hljs-keyword">unreachable</span> commit fcd<span class="hljs-number">3</span>f<span class="hljs-number">5</span>
 </code></pre><p>This shows us we have three unreachable objects:</p>
 <ul>
 <li>file3.txt (blob a83ffd)</li>
@@ -50,18 +39,18 @@ a, a:visited {
 </ul>
 <p><strong>Wait, what&#39;s --no-reflogs?</strong></p>
 <p>The reflog records every action you perform in a git repository, if we were to run &quot;git reflog&quot; after the third commit this would have been the output:</p>
-<pre><code>    $ git reflog      fcd3f55 HEAD@{1}: commit: added file3.txt      dfdd917 HEAD@{2}: commit: added file2.txt      fbe043e HEAD@{3}: commit (initial): added file1.txt
+<pre><code><span class="xml">    $ git reflog      fcd3f55 HEAD@</span><span class="hljs-template-variable">{1}</span><span class="xml">: commit: added file3.txt      dfdd917 HEAD@</span><span class="hljs-template-variable">{2}</span><span class="xml">: commit: added file2.txt      fbe043e HEAD@</span><span class="hljs-template-variable">{3}</span><span class="xml">: commit (initial): added file1.txt</span>
 </code></pre><p>After we run the &quot;git reset&quot; command the reflog will look like this:</p>
-<pre><code>    $ git reflog      dfdd917 HEAD@{0}: dfdd917: updating HEAD      fcd3f55 HEAD@{1}: commit: added file3.txt      dfdd917 HEAD@{2}: commit: added file2.txt      fbe043e HEAD@{3}: commit (initial): added file1.txt
+<pre><code><span class="xml">    $ git reflog      dfdd917 HEAD@</span><span class="hljs-template-variable">{0}</span><span class="xml">: dfdd917: updating HEAD      fcd3f55 HEAD@</span><span class="hljs-template-variable">{1}</span><span class="xml">: commit: added file3.txt      dfdd917 HEAD@</span><span class="hljs-template-variable">{2}</span><span class="xml">: commit: added file2.txt      fbe043e HEAD@</span><span class="hljs-template-variable">{3}</span><span class="xml">: commit (initial): added file1.txt</span>
 </code></pre><p>As you can see the reset action did not remove the commit from the reflog, but added a new entry to the reflog saying that the HEAD was updated.</p>
 <p>The &quot;--no-reflogs&quot; argument tells git to not consider commits that are referenced only by a reflog entry as reachable.</p>
 <p><strong>What do I do now?</strong></p>
 <p>Well, you can just leave that commit there, it won&#39;t be pushed to the remote repository and you can restore it whenever you like by running:</p>
-<pre><code>    $ git checkout fcd3f55
+<pre><code>    <span class="hljs-variable">$ </span>git checkout fcd3f55
 </code></pre><p>If you want to remove you can cleanup you repository as described <a href="http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html">here</a>at the bottom (basically, you expire the reflog entries, and then remove all unreachable objects).</p>
 <p><strong>What if I already pushed the commit?</strong></p>
 <p>Then this is option is highly unrecommended, but if you need to remove the commit from the server then use the &quot;-f&quot; attribute:</p>
-<pre><code>    $ git push -f
+<pre><code>    $ git <span class="hljs-keyword">push </span>-f
 </code></pre><h2 id="creating-a-remote-repository">Creating a remote repository</h2>
 <p>The two most common ways to create a remote repository are:</p>
 <ol>
@@ -71,47 +60,47 @@ a, a:visited {
 <h2 id="using-a-remote-repository">Using a remote repository</h2>
 <h3 id="option-1-">Option #1:</h3>
 <p>If you do not have an existing local repository, the you should just clone the remote repository:</p>
-<pre><code>    git clone path-to-repository
+<pre><code>    git <span class="hljs-keyword">clone</span> <span class="hljs-title">path-to-repository</span>
 </code></pre><p>Notice that you get a warning, <em>&quot;You appear to have cloned an empty repository.&quot;</em>.</p>
 <h3 id="option-2-">Option #2:</h3>
 <p>If you have an existing local repository and the remote repository is empty you should push the local commits to the remote repository:</p>
 <ol>
 <li><p>Add a new remote to your local repository, name the new remote &quot;origin&quot;:</p>
-<pre><code>git remote add origin path-to-repository
+<pre><code>git remote <span class="hljs-keyword">add</span><span class="bash"> origin path-to-repository</span>
 </code></pre></li>
 </ol>
 <p>This command will add the following lines to the .git/config file:</p>
-<pre><code>    [remote &quot;origin&quot;]      url = path-to-repository      fetch = +refs/heads/*:refs/remotes/origin/*
+<pre><code>    [remote <span class="hljs-string">"origin"</span>]      url = path-to-repository      fetch = +refs/heads/*<span class="hljs-symbol">:refs/remotes/origin/*</span>
 </code></pre><p>These lines let git know that the &quot;origin&quot; remote is mapped to the specified url and that it should fetch the heads and the branches from the remote repository (this is the default behavior).</p>
 <h2 id="pushing-changes-to-a-remote-repository">Pushing changes to a remote repository</h2>
 <p>At this point, if you make some changes, commit them and try to push you will get the following error:</p>
-<pre><code>    No refs in common and none specified; doing nothing.    Perhaps you should specify a branch such as &#39;master&#39;.
+<pre><code>    No refs <span class="hljs-keyword">in</span> <span class="hljs-meta">common</span> <span class="hljs-keyword">and</span> none specified<span class="hljs-comment">; doing nothing.    Perhaps you should specify a branch such as 'master'.</span>
 </code></pre><p>Since the remote repository is empty there isn&#39;t a matching branch in origin, so the first time you push you must define which branch to push:</p>
-<pre><code>    git push origin master
+<pre><code>    git <span class="hljs-built_in">push</span> <span class="hljs-built_in">origin</span> master
 </code></pre><p>This command makes git push all commits in the &quot;master&quot; branch to the &quot;origin&quot; repository.</p>
 <p><strong>Note</strong>: if we had cloned a non-empty repository we could just run &quot;git push&quot;.</p>
 <h2 id="getting-changes-from-a-remote-repository">Getting changes from a remote repository</h2>
 <p>To get the latest changes from a remote repository run:</p>
-<pre><code>    git fetch
+<pre><code><span class="hljs-attribute">    git fetch</span>
 </code></pre><p>This command will download all the commits made to the remote repository since the latest fetch (or clone).</p>
 <p>If there are changes in the remote repository we have the following options:</p>
 <h3 id="option-1-merge">Option #1: Merge</h3>
-<pre><code>    git merge origin/master
+<pre><code>    git <span class="hljs-keyword">merge</span> origin/<span class="hljs-keyword">master</span>
 </code></pre><p>This command will take all of the commits from the given branch (in this case &quot;origin/master&quot;) and incorporate them into the current branch.</p>
 <p><strong>Note #1</strong>: make sure you&#39;re in the correct branch before merging (run &quot;git branch&quot; to see which branch you&#39;re in).</p>
 <p><strong>Note #2</strong>: You can do fetch+merge automatically by running &quot;git pull&quot;</p>
 <h3 id="option-2-rebase">Option #2: Rebase</h3>
 <p>If you have made your own local commits before fetching new commits your history becomes split:</p>
-<pre><code>    * my local commit #2    * my local commit #1    | * new remote commit #2    | * new remote commit #1    |/    * last commit before the split
+<pre><code>    * my <span class="hljs-built_in">local</span> commit #2    * my <span class="hljs-built_in">local</span> commit #1    | * <span class="hljs-literal">new</span> remote commit #2    | * <span class="hljs-literal">new</span> remote commit #1    |/    * last commit before the split
 </code></pre><p>One option is to do a merge and incorporate all of the remote commits into the current master branch. This will cause the history to look like this:</p>
-<pre><code>    * Merge remote-tracking branch &#39;origin/master&#39;    |\    | * new remote commit #2    | * new remote commit #1    * | my local commit #2    * | my local commit #1    |/    * last commit before the split
+<pre><code>    * Merge remote<span class="hljs-params">-tracking</span> branch <span class="hljs-string">'origin/master'</span>    |\    | * <span class="hljs-literal">new</span> remote commit #2    | * <span class="hljs-literal">new</span> remote commit #1    * | my <span class="hljs-built_in">local</span> commit #2    * | my <span class="hljs-built_in">local</span> commit #1    |/    * last commit before the split
 </code></pre><p>This is ugly...</p>
 <p>The better way to do this is using Rebase which basically takes commits and modifies them (if needed) to match a different source commit.</p>
 <p>So we can take the local master branch and make all of the commits from the split-off point match the current origin/master branch.</p>
 <p>To perform a rebase we run:</p>
-<pre><code>    git rebase origin/master
+<pre><code>    git rebase origin/<span class="hljs-literal">master</span>
 </code></pre><p>This command will make all of the changes from &#39;master&#39; to the previous &#39;origin/master&#39; match the new origin/master so the history will look like this:</p>
-<pre><code>    * my local commit #2    * my local commit #1    * new remote commit #2    * new remote commit #1    * last commit before the split
+<pre><code>    * my <span class="hljs-built_in">local</span> commit #2    * my <span class="hljs-built_in">local</span> commit #1    * <span class="hljs-literal">new</span> remote commit #2    * <span class="hljs-literal">new</span> remote commit #1    * last commit before the split
 </code></pre><p>For a more detailed example of rebase you can see my <a href="http://elentok.blogspot.com/2012/01/git-rebase-example.html">previous post</a></p>
 <p>Thanks for reading, I hope you find this article useful.</p>
 <p>Until the next time, David.</p>
