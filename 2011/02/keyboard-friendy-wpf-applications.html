@@ -1,0 +1,66 @@
+<html><head><title>@elentok - </title><style type="text/css">body {
+  font-family: sans-serif;
+  background: #242424;
+  color: #e9e9e9;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+pre, code {
+  font-family: 'Source Code Pro';
+}
+
+pre {
+  padding: 15px;
+  background-color: #121212;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+
+a, a:visited {
+  color: #98adec;
+}
+
+.e-page {
+  margin: auto;
+  max-width: 700px;
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><h2>Keyboard Friendly WPF Applications</h2><div><p>Back in my Linux-only days I used the keyboard for everything, and I barely touched the mouse, but during the last five years, working full-time as a .NET developer on Windows systems, I started to use the mouse a lot more than I used to.
+Recently, I have been trying to cut back on my mouse use and go back to keyboard-only. This made me notice that some of my WPF applications are not very keyboard friendly (keyboard shortcuts, weird tab order, etc...).</p>
+<p>In my search for improving keyboard-support on my WPF applications I found a few tips that I would like to share:
+<a name="more"></a>
+<span class="Apple-style-span" style="font-size: large;">1. AccessText</span>
+To add access keys to your buttons and menu item you can use the &quot;_&quot; character (in Windows.Forms this used to be the done using the &quot;&amp;&quot; character).</p>
+<p>Since not all of the WPF controls supports this (as far as I know, only menu items and buttons support this), you can use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.accesstext.aspx">AccessText</a> object for this, for example:</p>
+<div style="text-align: center;">
+
+<pre><AccessText>Sort _by</AccessText>
+</pre>
+
+</div>
+
+<p>The access keys are then underlined like this:</p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s1600/AccessText.png"><img src="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s320/AccessText.png" alt="AccessText example"></a></div>
+
+<p><span class="Apple-style-span" style="font-size: large;">2. Labels</span>
+If you want to allow the user to jump quickly to a ComboBox, ListBox or any control that doesn&#39;t have a label (like a button or a menu item) you can add your own label:</p>
+<pre><Label Target="{Binding ElementName=myCombo}">
+  <AccessText>_My Combo:</AccessText>
+</Label>
+<ComboBox x:Name="myCombo" ... />
+</pre>
+
+<p><span class="Apple-style-span" style="font-size: large;">3. InputBinding</span>
+You can use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.uielement.inputbindings.aspx">InputBindings</a> property to bind keyboard shortcuts to existing command.</p>
+<p>For example, I have a ListBox that has a context menu, that context menu has a menu item that is binded to the &quot;RefreshCommand&quot; property of the view model, and I want to make the F5 run this command. To do that I add an input binding like this:</p>
+<pre><ListBox ...>
+  <ListBox.InputBindings>
+    <KeyBinding Key="F5" Command="{Binding RefreshCommand}" />
+  </ListBox.InputBindings>
+</pre>
+
+<p><span class="Apple-style-span" style="font-size: large;">4. TabIndex</span>
+Sometimes when you&#39;re tabbing between controls it gets messed up, to fix it you can use the &quot;TabIndex&quot; property and set numeric values for each control. The control with a tab index of 0 will be the first to focus.</p>
+<p><span class="Apple-style-span" style="font-size: large;">5. Focusable</span>
+Sometimes you have controls that the user shouldn&#39;t focus on (it sometimes happens when overriding control templates), to disable a control from being focused on, set the &quot;Focusable&quot; property to &quot;False&quot;, this way when the user tabs between controls this control will be skipped.</p>
+</div></div><style type="text/css">@import "/style.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro');</style></body></html>

@@ -1,0 +1,125 @@
+<html><head><title>@elentok - </title><style type="text/css">body {
+  font-family: sans-serif;
+  background: #242424;
+  color: #e9e9e9;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+pre, code {
+  font-family: 'Source Code Pro';
+}
+
+pre {
+  padding: 15px;
+  background-color: #121212;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+
+a, a:visited {
+  color: #98adec;
+}
+
+.e-page {
+  margin: auto;
+  max-width: 700px;
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><h2>3-Pane Layout in WPF</h2><div><p>I&#39;ve started playing with Prism again, and in the application I&#39;m writing I needed a three-pane layout with splitters (ignore the ugly colors):</p>
+<center>
+<a href="http://3.bp.blogspot.com/_VWGZ0axfmrM/S5opoExSA7I/AAAAAAAABGM/oxhkY73iINU/s1600-h/ThreePaneLayoutWindow.png"><img src="http://3.bp.blogspot.com/_VWGZ0axfmrM/S5opoExSA7I/AAAAAAAABGM/oxhkY73iINU/s400/ThreePaneLayoutWindow.png" alt=""></a>
+</center>
+
+<p>Now, I&#39;ve done this before, but I couldn&#39;t find that code anywhere, so I started writing it from scratch. Apparently, there are several ways to do this, but the way I chose to do it works like this:</p>
+<ul>
+<li>The primary container is a Grid</li>
+<li>It has 3 rows and 3 columns</li>
+<li><p>There are two splitters:</p>
+<ul>
+<li>The vertical splitter spans the entire middle column</li>
+<li>The horizontal splitter spans the entire middle row</li>
+</ul>
+</li>
+<li><p>There are three panels:</p>
+<ul>
+<li>The sidebar pane spans the entire left column</li>
+<li>The top pane is in the top-right column</li>
+<li>The bottom pane is in the bottom-right column</li>
+</ul>
+</li>
+</ul>
+<p>The hardest part was to get the &quot;MinWidth/MinHeight&quot; to work (if I hard-code the width of one of the columns, then the MinWidth of the other column is ignored), I ended up settings the width and heights of the columns/rows using &quot;*&quot;.</p>
+<p>And here is the XAML code:
+ <span class="Apple-style-span" style="font-family:monospace;font-size:100%;"><span class="Apple-style-span" style="font-size: 13px; white-space: pre;"><span class="Apple-style-span" style="font-family:Georgia, serif;font-size:130%;"><span class="Apple-style-span" style="font-size: 16px; white-space: normal;"></span></span></span></span> </p>
+<pre><Window x:Class="WpfSandbox.ThreePaneLayoutWindow"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   Title="Three Pane Layout Window" Height="300" Width="300">
+   <Grid>
+       <Grid.ColumnDefinitions>
+           <ColumnDefinition Width="1*" MinWidth="100" />
+           <ColumnDefinition Width="4" />
+           <!-- the splitter's column -->
+           <!-- the "3*" will make the 3rd column 3 times as wide as the first one -->
+           <ColumnDefinition Width="3*" MinWidth="100" />
+       </Grid.ColumnDefinitions>
+       <Grid.RowDefinitions>
+           <RowDefinition Height="*" MinHeight="100" />
+           <RowDefinition Height="4" />
+           <!-- the splitter's row -->
+           <RowDefinition Height="*" MinHeight="100" />
+       </Grid.RowDefinitions>
+
+       <!-- sidebar (column #0, spanning 3 rows) -->
+       <TextBlock Name="SidebarRegion"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     TextAlignment="Center"
+                     Background="Blue"
+                     Grid.Column="0" Grid.RowSpan="3">
+           Sidebar region<LineBreak />
+           Column #0<LineBreak />
+           Spaning 3 rows
+       </TextBlock>
+
+       <!-- vertical splitter (column #1, spanning 3 rows) -->
+       <GridSplitter ResizeDirection="Columns"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     Background="Black"
+                     Grid.Column="1" Grid.RowSpan="3"/>
+
+       <!-- top area (column #2, row #0) -->
+       <TextBlock Name="TopRegion"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     TextAlignment="Center"
+                     Background="Yellow"
+                     Grid.Column="2" Grid.Row="0">
+           Top region<LineBreak />
+           Column #2<LineBreak />
+           Row #0
+       </TextBlock>
+
+       <!-- horizontal splitter (column #2, row #1) -->
+       <GridSplitter ResizeDirection="Rows"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch"
+                     Background="Green"
+                     Grid.Column="2" Grid.Row="1" />
+
+       <!-- bottom area (column #2, row #2) -->
+       <TextBlock Name="BottomRegion"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  TextAlignment="Center"
+                  Background="Salmon"
+                  Grid.Column="2" Grid.Row="2">
+           Bottom region<LineBreak />
+           Column #2<LineBreak />
+           Row #2
+       </TextBlock>
+   </Grid>
+</Window>
+
+</pre></div></div><style type="text/css">@import "/style.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro');</style></body></html>

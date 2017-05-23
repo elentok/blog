@@ -1,0 +1,53 @@
+<html><head><title>@elentok - </title><style type="text/css">body {
+  font-family: sans-serif;
+  background: #242424;
+  color: #e9e9e9;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+pre, code {
+  font-family: 'Source Code Pro';
+}
+
+pre {
+  padding: 15px;
+  background-color: #121212;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+
+a, a:visited {
+  color: #98adec;
+}
+
+.e-page {
+  margin: auto;
+  max-width: 700px;
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><h2>Custom CSS folding in Vim</h2><div><p>CSS files tend to grow very long, and even if you split them to smaller files, they are still not very easy to navigate.</p>
+<p>To make things simpler I&#39;m using <a href="http://www.vim.org">Vim</a>&#39;s custom folding feature to fold the CSS code into sections:</p>
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-5YcC1dG8L8c/Tpg7AfecelI/AAAAAAAABMc/fL8Y-oZ5AIQ/s1600/vim-css-folding.png"><img src="http://4.bp.blogspot.com/-5YcC1dG8L8c/Tpg7AfecelI/AAAAAAAABMc/fL8Y-oZ5AIQ/s400/vim-css-folding.png" alt=""></a></div>
+
+<p>To add a folding section just add a line like this:</p>
+<pre>
+  /* Name of section {{ "{{" }}{1 */
+</pre>
+
+<p>The &quot;{{ &quot;{{&quot; }}{1&quot; defines the start of the section and you can define multiple levels by changing the number (&quot;{{ &quot;{{&quot; }}{2&quot;, &quot;{{ &quot;{{&quot; }}{3&quot;, ...).</p>
+<p>Each section ends before the beginning of the next section with the same level, but you can end a section manually by adding one of these lines:</p>
+<pre>
+  /* }}} */ (ends the last section)
+  /* }}}1 */ (ends the last level 1 section)
+</pre>
+
+<p>All you need to do to enable this is add the following line to your .vimrc file:</p>
+<pre>
+  autocmd BufRead,BufEnter *.css setlocal foldmethod=marker
+</pre>
+
+<p>This line tells Vim that whenever a css file is opened, set the folding method to &quot;marker&quot; (see the help file for &#39;foldmethod&#39; to see other options).</p>
+<p>For excellent tutorials on Vim see <a href="http://vimcasts.org/episodes">VimCasts.org</a>, for Vim beginners I highly recommend to start with the <a href="http://vimcasts.org/episodes/modal-editing-undo-redo-and-repeat/">Modal editing screencast</a>.</p>
+<p>Thanks for reading,
+David.</p>
+</div></div><style type="text/css">@import "/style.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro');</style></body></html>

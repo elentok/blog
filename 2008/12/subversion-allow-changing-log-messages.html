@@ -1,0 +1,46 @@
+<html><head><title>@elentok - </title><style type="text/css">body {
+  font-family: sans-serif;
+  background: #242424;
+  color: #e9e9e9;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+pre, code {
+  font-family: 'Source Code Pro';
+}
+
+pre {
+  padding: 15px;
+  background-color: #121212;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+
+a, a:visited {
+  color: #98adec;
+}
+
+.e-page {
+  margin: auto;
+  max-width: 700px;
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><h2>Subversion: Allow changing log messages</h2><div><p>I&#39;ve accidentally committed some changes to the source control without entering a log message, and when I tried editing the log message I got this error message:</p>
+<blockquote>
+<p>Repository has not been enabled to accept revision propchanges;
+ask the administrator to create a pre-revprop-change hook</p>
+</blockquote>
+<p>After googling a bit I found the solution:</p>
+<p>Go to the &quot;hooks&quot; directory in the root of the repository, create a file named &quot;<span style="font-weight: bold;">pre-revprop-change.bat</span>&quot; with the following lines:</p>
+<pre>
+set PROPNAME=%4
+
+if "%PROPNAME%" == "svn:log" (
+    exit /b 0
+)
+
+exit /b 1
+</pre>
+
+<p>This script will allow changing the &quot;svn:log&quot; property thus allowing users to rename commits.</p>
+</div></div><style type="text/css">@import "/style.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Source+Code+Pro');</style></body></html>
