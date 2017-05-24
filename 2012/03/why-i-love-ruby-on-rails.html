@@ -199,8 +199,13 @@ need is a simple config/locales/{lang}.yml file which looks something like this:
 <span class="hljs-attr">          author:</span> <span class="hljs-string">סופר</span>
 <span class="hljs-attr">          price:</span> <span class="hljs-string">מחיר</span>
 </code></pre>
-<p>This will automatically be loaded by Rails when once you change the locale to &quot;he&quot;, and will affect date/time formatting, views that use form helpers such as &quot;f.label_for&quot;.</p>
-<p>If you just want to get the localized version of on of these items you can do &quot;I18n.t(&#39;activerecord.models.attributes.book.title&#39;)&quot; and it will translate it for you.</p>
+<p>This will automatically be loaded by Rails when once you change the locale to
+&quot;he&quot;, and will affect date/time formatting, views that use form helpers such as
+<code>f.label_for</code>.</p>
+<p>If you just want to get the localized version of on of these items you can do:</p>
+<pre><code class="lang-ruby">I18n.t(<span class="hljs-string">'activerecord.models.attributes.book.title'</span>)
+</code></pre>
+<p>And it will translate it for you.</p>
 <p>It also supports pluralization like this:</p>
 <pre><code class="lang-ruby">I18n.t(<span class="hljs-string">'human.storage_units.byte'</span>, <span class="hljs-symbol">count:</span> <span class="hljs-number">4</span>)
 </code></pre>
@@ -330,4 +335,11 @@ screencasts and I&#39;m considering subscribing to them too.</li>
 <p>Hope you enjoyed this post, I know I did :-) Thanks for reading,</p>
 <p>David.</p>
 </div><div class="e-post__next"><span>Next:</span><a href="/2012/06/exporting-hebrew-contacts-from-motorola.html">Exporting (hebrew) contacts from a Motorola i876 phone</a></div></div></div><style type="text/css">@import "/style.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');</style></body></html>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
+</style><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-31707322-2', 'auto');
+ga('send', 'pageview');</script></body></html>
