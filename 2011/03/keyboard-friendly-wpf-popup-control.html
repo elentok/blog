@@ -1,4 +1,4 @@
-<html><head><title>@elentok - </title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
+<html><head><title>Keyboard Friendly WPF Popup Control - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -14,44 +14,46 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Keyboard Friendly WPF Popup Control</h1><div class="e-post__date">March 8th, 2011</div><div class="e-post__body"><p>A couple of weeks ago I talked about <a href="http://elentok.blogspot.com/2011/02/keyboard-friendy-wpf-applications.html">various tips for building more keyboard friendly WPF application</a>, now I will I am going to focus about the WPF Popup control.</p>
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Keyboard Friendly WPF Popup Control</h1><div class="e-post__date">March 8th, 2011</div><div class="e-post__body"><p>A couple of weeks ago I talked about <a href="/2011/02/keyboard-friendy-wpf-applications.html">various tips for building more keyboard
+friendly WPF application</a>, now I will I am going to focus about the WPF Popup
+control.</p>
 <p>To make the popup control more keyboard friendly we need to make the following changes:</p>
 <ol>
-<li>When the popup opens, the keyboard focus should move to the contents of the popup.</li>
+<li>When the popup opens, the keyboard focus should move to the contents of the
+popup.</li>
 <li>Lock the keyboard focus inside the popup until it closes.</li>
 </ol>
-<div>To do this, I created the &quot;FriendlyPopup&quot; control (or &quot;EnhancedPopup&quot; or whatever):
-
-</div>
-
-<pre>  public class **FriendlyPopup** : Popup
+<p>To do this, I created the &quot;FriendlyPopup&quot; control (or &quot;EnhancedPopup&quot; or
+whatever):</p>
+<pre><code class="lang-cs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">FriendlyPopup</span> : <span class="hljs-title">Popup</span>
   {
-    protected override void **OnOpened**(EventArgs e)
-    {
-      base.OnOpened(e);
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnOpened</span>(<span class="hljs-params">EventArgs e</span>)
+    </span>{
+      <span class="hljs-keyword">base</span>.OnOpened(e);
 
-      // move the focus into the popup when it opens.
-      this.Child.MoveFocus(new TraversalRequest(
+      <span class="hljs-comment">// move the focus into the popup when it opens.</span>
+      <span class="hljs-keyword">this</span>.Child.MoveFocus(<span class="hljs-keyword">new</span> TraversalRequest(
         FocusNavigationDirection.Next));
     }
 
-    protected override void **OnLostKeyboardFocus**(
-      KeyboardFocusChangedEventArgs e)
-    {
-      base.OnLostKeyboardFocus(e);
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnLostKeyboardFocus</span>(<span class="hljs-params">
+      KeyboardFocusChangedEventArgs e</span>)
+    </span>{
+      <span class="hljs-keyword">base</span>.OnLostKeyboardFocus(e);
 
-      // if the focus is still inside the popup, 
-      // don't do anything.
-      if (this.IsKeyboardFocusWithin)
-        return;
+      <span class="hljs-comment">// if the focus is still inside the popup, </span>
+      <span class="hljs-comment">// don't do anything.</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.IsKeyboardFocusWithin)
+        <span class="hljs-keyword">return</span>;
 
-      // if the popup is still open, keep the focus inside.
-      if (this.IsOpen)
-        this.Child.MoveFocus(new TraversalRequest(
+      <span class="hljs-comment">// if the popup is still open, keep the focus inside.</span>
+      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.IsOpen)
+        <span class="hljs-keyword">this</span>.Child.MoveFocus(<span class="hljs-keyword">new</span> TraversalRequest(
           FocusNavigationDirection.Next));
     }
   }
-</pre></div><div class="e-post__next"><span>Next:</span><a href="/2011/03/wpf-and-keyboardnavigationtabnavigation.html">WPF and KeyboardNavigation.TabNavigation=&quot;Local&quot;</a></div></div></div><style type="text/css">@import "/style.css";
+</code></pre>
+</div><div class="e-post__next"><span>Next:</span><a href="/2011/03/wpf-and-keyboardnavigationtabnavigation.html">WPF and KeyboardNavigation.TabNavigation = &quot;Local&quot;</a></div></div></div><style type="text/css">@import "/style.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
 </style><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

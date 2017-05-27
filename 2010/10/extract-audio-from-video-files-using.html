@@ -1,4 +1,4 @@
-<html><head><title>@elentok - </title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
+<html><head><title>Extract audio from video files using VLC - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -14,24 +14,24 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Extract audio from video files using VLC</h1><div class="e-post__date">October 20th, 2010</div><div class="e-post__body"><p>You can use the following command to extract audio from a video file using <a href="http://www.videolan.org/">VLC</a>:</p>
-<pre>$ vlc 
-    _"Source File"_ 
-    --sout #transcode{acodec=mp3}
-      :duplicate{dst=std{access=file,mux=raw,
-      dst=_"Output.mp3"_,select=novideo}}
-</pre>
-
-<p>(<strong>Important!: The argument of &quot;--sout&quot; must have no spaces in it (except for in the &quot;dst&quot; attribute</strong>).</p>
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Extract audio from video files using VLC</h1><div class="e-post__date">October 20th, 2010</div><div class="e-post__body"><p>You can use the following command to extract audio from a video file using
+<a href="http://www.videolan.org/">VLC</a>:</p>
+<pre><code class="lang-shell"><span class="hljs-meta">$</span><span class="bash"> vlc <span class="hljs-string">"Source File"</span> \</span>
+    --sout #transcode{acodec=mp3}\
+    :duplicate{dst=std{access=file,\
+    mux=raw,dst="Output.mp3",select=novideo}}
+</code></pre>
+<p>(<strong>Important!: The argument of &quot;--sout&quot; must have no spaces in it (except for in
+the &quot;dst&quot; attribute</strong>).</p>
 <p>To only extract a segment of audio use the following command:</p>
-<pre>$ vlc 
-    _"Source File"_ 
-    --start-time=_start time (in seconds)_
-    --stop-time=_stop time (in seconds)_
-    --sout #transcode{acodec=mp3}
-      :duplicate{dst=std{access=file,mux=raw,
-      dst=_"Output.mp3"_,select=novideo}}
-</pre></div><div class="e-post__next"><span>Next:</span><a href="/2010/10/record-stream-using-vlc.html">Record a stream using VLC</a></div></div></div><style type="text/css">@import "/style.css";
+<pre><code class="lang-shell"><span class="hljs-meta">$</span><span class="bash"> vlc <span class="hljs-string">"Source File"</span> \</span>
+  --start-time=&lt;start time (in seconds)&gt; \
+  --stop-time=&lt;stop time (in seconds)&gt; \
+  --sout #transcode{acodec=mp3}\
+    :duplicate{dst=std{access=file,mux=raw,\
+    dst="Output.mp3",select=novideo}}
+</code></pre>
+</div><div class="e-post__next"><span>Next:</span><a href="/2010/10/record-stream-using-vlc.html">Record a stream using VLC</a></div></div></div><style type="text/css">@import "/style.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
 </style><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

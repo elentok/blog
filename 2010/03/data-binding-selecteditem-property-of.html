@@ -1,4 +1,4 @@
-<html><head><title>@elentok - </title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
+<html><head><title>Data-binding the SelectedItem property of the WPF TreeView - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -14,141 +14,145 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Data-binding the SelectedItem property of the WPF TreeView</h1><div class="e-post__date">March 20th, 2010</div><div class="e-post__body"><p>In a new WPF application I&#39;m writing I needed to bind the &quot;SelectedItem&quot; property of the TreeView control to the &quot;SelectedItem&quot; property of its <a href="http://blogs.msdn.com/dphill/archive/2009/01/31/the-viewmodel-pattern.aspx">ViewModel</a>; but, alas, the TreeView&#39;s &quot;SelectedItem&quot; property is read-only...</p>
-<div>After some googling I found the <a href="http://www.codeproject.com/KB/WPF/versatile_treeview.aspx">Versatile TreeView</a> by Philip Sumi which adds the property I wanted, but since I&#39;m learning WPF and want a deeper understanding I decided to write my own (and use Philip&#39;s TreeView as reference).</div>
-
-<div>In the code I noticed a lot of dependency properties, and I figured its time to learn what are dependency properties and how do they work; again, some googling brought me to <a href="http://www.switchonthecode.com/tutorials/wpf-tutorial-introduction-to-dependency-properties">this post</a> which I think gives a very good explanation of dependency properties.
-
-<div>Now that I knew what I had to do, I started writing the &quot;EnhancedTreeView&quot; class (which is based on the TreeView class).</div>
-
-<div>At first I thought about overriding the &quot;SelectedItem&quot; property but it didn&#39;t go very smooth so I added the &quot;SelectedObject&quot; property.</div>
-
-<div>I added a callback to the dependency-property-changed event (see &quot;SelectedObjectChangedCallback&quot;) and when the property was changed I needed to change the selected item; but, alas again!, the selected item is read-only...</div>
-
-<div>Some more googling brought me to this <a href="http://quickduck.com/blog/2008/12/11/selecting-an-item-in-a-treeview-in-wpf/">blog post</a> which uses the &quot;ItemsContainerGenerator&quot; to find the matching TreeViewItem for the object I want to select.</div>
-
-<div>And here&#39;s the final code:</div>
-
-<div>
-
-<pre>
-/// <summary>
-/// This treeview class allows databinding the
-/// &quot;SelectedObject&quot; property
-/// </summary>
-public class EnhancedTreeView : TreeView
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Data-binding the SelectedItem property of the WPF TreeView</h1><div class="e-post__date">March 20th, 2010</div><div class="e-post__body"><p>In a new WPF application I&#39;m writing I needed to bind the &quot;SelectedItem&quot;
+property of the TreeView control to the &quot;SelectedItem&quot; property of its
+<a href="http://blogs.msdn.com/dphill/archive/2009/01/31/the-viewmodel-pattern.aspx">ViewModel</a>; but, alas, the TreeView&#39;s &quot;SelectedItem&quot; property is
+read-only...</p>
+<p>After some googling I found the <a href="http://www.codeproject.com/KB/WPF/versatile_treeview.aspx">Versatile TreeView</a> by Philip Sumi which
+adds the property I wanted, but since I&#39;m learning WPF and want a deeper
+understanding I decided to write my own (and use Philip&#39;s TreeView as
+reference).</p>
+<p>In the code I noticed a lot of dependency properties, and I figured its time to
+learn what are dependency properties and how do they work; again, some googling
+brought me to <a href="http://www.switchonthecode.com/tutorials/wpf-tutorial-introduction-to-dependency-properties">this post</a> which I think gives a very good explanation of
+dependency properties.</p>
+<p>Now that I knew what I had to do, I started writing the <code>EnhancedTreeView</code> class
+(which is based on the TreeView class).</p>
+<p>At first I thought about overriding the <code>SelectedItem</code> property but it didn&#39;t go
+very smooth so I added the <code>SelectedObject</code> property.</p>
+<p>I added a callback to the dependency-property-changed event (see
+<code>SelectedObjectChangedCallback</code>) and when the property was changed I needed to
+change the selected item; but, alas again!, the selected item is
+read-only...</p>
+<p>Some more googling brought me to this <a href="http://quickduck.com/blog/2008/12/11/selecting-an-item-in-a-treeview-in-wpf/">blog post</a> which uses the
+<code>ItemsContainerGenerator</code> to find the matching <code>TreeViewItem</code> for the object I
+want to select.</p>
+<p>And here&#39;s the final code:</p>
+<pre><code class="lang-cs"><span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span>
+<span class="hljs-comment"><span class="hljs-doctag">///</span> This treeview class allows databinding the</span>
+<span class="hljs-comment"><span class="hljs-doctag">///</span> "SelectedObject" property</span>
+<span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">EnhancedTreeView</span> : <span class="hljs-title">TreeView</span>
 {
- #region SelectedObject
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">region</span> SelectedObject</span>
 
- /// <summary>
- /// The dependency property that allows use to bind the
- /// &quot;SelectedObject&quot; property
- /// </summary>
- public static readonly DependencyProperty
-   SelectedObjectProperty =
-     DependencyProperty.Register(
-       &quot;SelectedObject&quot;,
-       typeof(object),
-       typeof(EnhancedTreeView),
-       new PropertyMetadata(SelectedObjectChangedCallback));
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> The dependency property that allows use to bind the</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> "SelectedObject" property</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span>
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">readonly</span> DependencyProperty
+    SelectedObjectProperty =
+      DependencyProperty.Register(
+        <span class="hljs-string">"SelectedObject"</span>,
+        <span class="hljs-keyword">typeof</span>(<span class="hljs-keyword">object</span>),
+        <span class="hljs-keyword">typeof</span>(EnhancedTreeView),
+        <span class="hljs-keyword">new</span> PropertyMetadata(SelectedObjectChangedCallback));
 
- /// <summary>
- /// Gets or sets the select object (a writable version of
- /// the &quot;SelectedItem&quot; property)
- /// </summary>
- [Bindable(true)]
- public object SelectedObject
- {
-   get { return GetValue(SelectedObjectProperty); }
-   set { SetValue(SelectedObjectProperty, value); }
- }
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> Gets or sets the select object (a writable version of</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> the "SelectedItem" property)</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span>
+  [Bindable(<span class="hljs-literal">true</span>)]
+  <span class="hljs-keyword">public</span> <span class="hljs-keyword">object</span> SelectedObject
+  {
+    <span class="hljs-keyword">get</span> { <span class="hljs-keyword">return</span> GetValue(SelectedObjectProperty); }
+    <span class="hljs-keyword">set</span> { SetValue(SelectedObjectProperty, <span class="hljs-keyword">value</span>); }
+  }
 
- /// <summary>
- /// This method is called whenever ever the selected
- /// object is changed, and if it was changed from the
- /// outside, this method will set the selected item.
- /// </summary>
- /// <param name="obj"></param>
- /// <param name="eventArgs"></param>
- private static void SelectedObjectChangedCallback
-   (DependencyObject obj,
-    DependencyPropertyChangedEventArgs eventArgs)
- {
-   EnhancedTreeView treeView = (EnhancedTreeView)obj;
-   if (!ReferenceEquals(treeView.SelectedItem,
-         eventArgs.NewValue))
-     SelectItem(treeView, eventArgs.NewValue);
- }
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> This method is called whenever ever the selected</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> object is changed, and if it was changed from the</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> outside, this method will set the selected item.</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="obj"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="eventArgs"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SelectedObjectChangedCallback</span>
+    (<span class="hljs-params">DependencyObject obj,
+     DependencyPropertyChangedEventArgs eventArgs</span>)
+  </span>{
+    EnhancedTreeView treeView = (EnhancedTreeView)obj;
+    <span class="hljs-keyword">if</span> (!ReferenceEquals(treeView.SelectedItem,
+          eventArgs.NewValue))
+      SelectItem(treeView, eventArgs.NewValue);
+  }
 
- #endregion
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">endregion</span></span>
 
- /// <summary>
- /// Searches the given item in the parent (recursively)
- /// and selects it, returns true if the item was found
- /// and selected, false otherwise.
- /// </summary>
- /// <param name="parent"></param>
- /// <param name="itemToSelect"></param>
- /// <returns></returns>
- private static bool SelectItem
-   (ItemsControl parent, object itemToSelect)
- {
-   var childTreeNode =
-     parent.ItemContainerGenerator
-       .ContainerFromItem(itemToSelect)
-     as TreeViewItem;
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> Searches the given item in the parent (recursively)</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> and selects it, returns true if the item was found</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> and selected, false otherwise.</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="parent"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="itemToSelect"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;returns&gt;</span><span class="hljs-doctag">&lt;/returns&gt;</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">SelectItem</span>
+    (<span class="hljs-params">ItemsControl parent, <span class="hljs-keyword">object</span> itemToSelect</span>)
+  </span>{
+    <span class="hljs-keyword">var</span> childTreeNode =
+      parent.ItemContainerGenerator
+        .ContainerFromItem(itemToSelect)
+      <span class="hljs-keyword">as</span> TreeViewItem;
 
-   // if the item to select is directly under &quot;parent&quot;,
-   // just select it
-   if (childTreeNode != null)
-   {
-     childTreeNode.Focus();
-     return childTreeNode.IsSelected = true;
-   }
+    <span class="hljs-comment">// if the item to select is directly under "parent",</span>
+    <span class="hljs-comment">// just select it</span>
+    <span class="hljs-keyword">if</span> (childTreeNode != <span class="hljs-literal">null</span>)
+    {
+      childTreeNode.Focus();
+      <span class="hljs-keyword">return</span> childTreeNode.IsSelected = <span class="hljs-literal">true</span>;
+    }
 
-   // if the item to select is not directly under &quot;parent&quot;,
-   // search the child nodes of &quot;parent&quot;
-   if (parent.Items.Count &gt; 0)
-   {
-     foreach (object childItem in parent.Items)
-     {
-       var childItemsControl = 
-         parent.ItemContainerGenerator
-           .ContainerFromItem(childItem)
-         as ItemsControl;
+    <span class="hljs-comment">// if the item to select is not directly under "parent",</span>
+    <span class="hljs-comment">// search the child nodes of "parent"</span>
+    <span class="hljs-keyword">if</span> (parent.Items.Count &gt; <span class="hljs-number">0</span>)
+    {
+      <span class="hljs-keyword">foreach</span> (<span class="hljs-keyword">object</span> childItem <span class="hljs-keyword">in</span> parent.Items)
+      {
+        <span class="hljs-keyword">var</span> childItemsControl =
+          parent.ItemContainerGenerator
+            .ContainerFromItem(childItem)
+          <span class="hljs-keyword">as</span> ItemsControl;
 
-       if (SelectItem(childItemsControl, itemToSelect))
-         return true;
-     }
-   }
+        <span class="hljs-keyword">if</span> (SelectItem(childItemsControl, itemToSelect))
+          <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+      }
+    }
 
-   // if the given item wasn&#39;t found here:
-   return false;
- }
+    <span class="hljs-comment">// if the given item wasn't found here:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
 
- /// <summary>
- /// When the selected item is updated from inside the tree,
- /// this method will update the &quot;SelectedObject&quot; property.
- /// </summary>
- /// <param name="e"></param>
- protected override void OnSelectedItemChanged
-   (RoutedPropertyChangedEventArgs<object> e)
- {
-   this.SelectedObject = e.NewValue;
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> When the selected item is updated from inside the tree,</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> this method will update the "SelectedObject" property.</span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;/summary&gt;</span></span>
+  <span class="hljs-comment"><span class="hljs-doctag">///</span> <span class="hljs-doctag">&lt;param name="e"&gt;</span><span class="hljs-doctag">&lt;/param&gt;</span></span>
+  <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnSelectedItemChanged</span>
+    (<span class="hljs-params">RoutedPropertyChangedEventArgs&lt;<span class="hljs-keyword">object</span>&gt; e</span>)
+  </span>{
+    <span class="hljs-keyword">this</span>.SelectedObject = e.NewValue;
 
-   base.OnSelectedItemChanged(e);
- }
-}</pre>
-
-</div>
-
-<p></div></p>
-<p>To use the EnhancedTreeView all you need is to bind the &quot;SelectedObject&quot; property:</p>
-<pre><controls:EnhancedTreeView
- **SelectedObject="{Binding SelectedObject, Mode=TwoWay}"** 
- ItemsSource="..." /></pre>
-
-<p>It&#39;s important to add &quot;Mode=TwoWay&quot; to the binding, otherwise it won&#39;t work.</p>
+    <span class="hljs-keyword">base</span>.OnSelectedItemChanged(e);
+  }
+}
+</code></pre>
+<p>To use the EnhancedTreeView all you need is to bind the <code>SelectedObject</code>
+property:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">controls:EnhancedTreeView</span>
+  <span class="hljs-attr">SelectedObject</span>=<span class="hljs-string">"{Binding SelectedObject, Mode=TwoWay}"</span>
+  <span class="hljs-attr">ItemsSource</span>=<span class="hljs-string">"..."</span> /&gt;</span>
+</code></pre>
+<p>It&#39;s important to add <code>Mode=TwoWay</code> to the binding, otherwise it won&#39;t work.</p>
 </div><div class="e-post__next"><span>Next:</span><a href="/2010/04/making-items-in-wpf-itemscontrol.html">Making the items in a WPF ItemsControl stretch</a></div></div></div><style type="text/css">@import "/style.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
 </style><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -1,4 +1,4 @@
-<html><head><title>@elentok - </title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
+<html><head><title>Mercurial: Automatically run unittests before commit - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -14,44 +14,36 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Mercurial: Automatically run unittests before commit</h1><div class="e-post__date">August 17th, 2011</div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow committing unless the unit tests pass you can use the &quot;precommit&quot; hook.</p>
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Mercurial: Automatically run unittests before commit</h1><div class="e-post__date">August 17th, 2011</div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow
+committing unless the unit tests pass you can use the &quot;precommit&quot; hook.</p>
 <p>In the repository root, edit the &quot;.hg\hgrc&quot; file and add the following lines:</p>
-<pre>  [hooks]
-  precommit = _path-to-tests-script 
-              (e.g. "qtodotxt\test\runtests.py")_
-</pre>
-
-<p>It is very important that if the unit tests fail the script will return an non-zero exit code, in the QTodoTxt test-runner script (you can the source <a href="https://bitbucket.org/3david/qtodotxt/src/00db3d914c57/qtodotxt/test/runtests.py">here</a>) I do the following:</p>
+<pre><code>[hooks]
+precommit = path-<span class="hljs-keyword">to</span>-tests-<span class="hljs-keyword">script</span>
+            (e.g. <span class="hljs-string">"qtodotxt\test\runtests.py"</span>)
+</code></pre><p>It is very important that if the unit tests fail the script will return an
+non-zero exit code, in the QTodoTxt test-runner script (you can the source
+<a href="https://bitbucket.org/3david/qtodotxt/src/00db3d914c57/qtodotxt/test/runtests.py">here</a> I do the following:</p>
 <ul>
-<li><p>Initialize an &quot;exit_code&quot; variable to 0.</p>
-</li>
+<li>Initialize an &quot;exit_code&quot; variable to 0</li>
 <li><p>I run the standard python unittests:</p>
-</li>
-</ul>
-<pre>    tests = unittest.defaultTestLoader.discover('.', 
-        pattern='test*.py')
-    result = unittest.TextTestRunner(verbosity=2).run(tests)
-    if not result.wasSuccessful():
-      exit_code = 1
-</pre>
+<pre><code>tests = unittest.defaultTestLoader.discover(<span class="hljs-string">'.'</span>,
+        pattern=<span class="hljs-string">'test*.py'</span>)
 
-<ul>
-<li>Then I run the doctests:</li>
+<span class="hljs-built_in">result</span> = unittest.TextTestRunner(verbosity=<span class="hljs-number">2</span>).run(tests)
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">result</span>.wasSuccessful():
+  exit_code = <span class="hljs-number">1</span>
+</code></pre></li>
+<li>Then I run the doctests:<pre><code><span class="hljs-keyword">for</span> doctest_file <span class="hljs-keyword">in</span> os.listdir(testsdir):
+  <span class="hljs-keyword">if</span> doctest_file.endswith(<span class="hljs-string">'.doctest'</span>):
+    result = doctest.testfile(
+        os<span class="hljs-selector-class">.path</span><span class="hljs-selector-class">.join</span>(testsdir, doctest_file))
+    <span class="hljs-keyword">if</span> result<span class="hljs-selector-class">.failed</span> &gt; <span class="hljs-number">0</span>:
+      exit_code = <span class="hljs-number">2</span>
+</code></pre></li>
+<li>And at the end I use the <code>sys.exit</code> method to return the correct exit code:<pre><code>sys.<span class="hljs-keyword">exit</span>(exit_code)
+</code></pre></li>
 </ul>
-<pre>    for doctest_file in os.listdir(testsdir):
-      if doctest_file.endswith('.doctest'):
-        result = doctest.testfile(
-            os.path.join(testsdir, doctest_file))
-        if result.failed > 0:
-          exit_code = 2
-</pre>
-
-<ul>
-<li>And at the end I use the &quot;sys.exit&quot; method to return the correct exit code:</li>
-</ul>
-<pre>
-    sys.exit(exit_code)
-</pre></div><div class="e-post__next"><span>Next:</span><a href="/2011/09/restart-windows-file-sharing-service-to.html">Restart the Windows File Sharing Service to fix weird problems</a></div></div></div><style type="text/css">@import "/style.css";
+</div><div class="e-post__next"><span>Next:</span><a href="/2011/09/restart-windows-file-sharing-service-to.html">Restart the Windows File Sharing Service to fix weird problems</a></div></div></div><style type="text/css">@import "/style.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
 </style><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

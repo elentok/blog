@@ -1,4 +1,4 @@
-<html><head><title>@elentok - </title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
+<html><head><title>How to select a WPF TreeViewItem from code - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -14,20 +14,27 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">How to select a WPF TreeViewItem from code</h1><div class="e-post__date">June 3rd, 2010</div><div class="e-post__body"><p>I&#39;ve been breaking for a couple of hours now on how to select an tree view item properly by code. I&#39;m using the ViewModel&#39;s &quot;IsSelected&quot; property which is databinded to the TreeViewItem&#39;s &quot;IsSelected&quot; property, but I&#39;ve now realized that it&#39;s not enough...</p>
-<p>Some googling brought me to this <a href="http://social.msdn.microsoft.com/Forums/en-US/wpf/thread/61a062ef-058f-43ea-ad18-3d08e6bd8765">MSDN forum post</a>, and apparently the problem is that only selecting the TreeViewItem causes problems, what you need to do is also focus it, and the simple of doing that (according to the post) is this:</p>
-<p>In the XAML subscribe to the &quot;TreeViewItem.Selected&quot; event:</p>
-<pre><TreeView TreeViewItem.Selected="TreeViewItem_Selected" />
-</pre>
-
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">How to select a WPF TreeViewItem from code</h1><div class="e-post__date">June 3rd, 2010</div><div class="e-post__body"><p>I&#39;ve been breaking for a couple of hours now on how to select an tree view item
+properly by code. I&#39;m using the ViewModel&#39;s &quot;IsSelected&quot; property which is
+databinded to the TreeViewItem&#39;s &quot;IsSelected&quot; property, but I&#39;ve now realized
+that it&#39;s not enough...</p>
+<p>Some googling brought me to this <a href="http://social.msdn.microsoft.com/Forums/en-US/wpf/thread/61a062ef-058f-43ea-ad18-3d08e6bd8765">MSDN forum post</a>, and apparently the
+problem is that only selecting the TreeViewItem causes problems, what you need
+to do is also focus it, and the simple of doing that (according to the post) is
+this:</p>
+<p>In the XAML subscribe to the <code>TreeViewItem.Selected</code> event:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">TreeView</span> <span class="hljs-attr">TreeViewItem.Selected</span>=<span class="hljs-string">"TreeViewItem_Selected"</span> /&gt;</span>
+</code></pre>
 <p>And in the code-behind handle it like this:</p>
-<pre>private void TreeViewItem_Selected(object sender, RoutedEventArgs e)
-  {
-    TreeViewItem item = e.OriginalSource as TreeViewItem;
-    if (item != null && !item.IsFocused)
-      item.Focus();
+<pre><code class="lang-cs"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">TreeViewItem_Selected</span>(<span class="hljs-params"><span class="hljs-keyword">object</span> sender, RoutedEventArgs e</span>)
+</span>{
+  TreeViewItem item = e.OriginalSource <span class="hljs-keyword">as</span> TreeViewItem;
+  <span class="hljs-keyword">if</span> (item != <span class="hljs-literal">null</span> &amp;&amp; !item.IsFocused) {
+    item.Focus();
   }
-</pre></div><div class="e-post__next"><span>Next:</span><a href="/2010/07/amail-1924-beta.html">AMail 1.9.2.4 BETA</a></div></div></div><style type="text/css">@import "/style.css";
+}
+</code></pre>
+</div><div class="e-post__next"><span>Next:</span><a href="/2010/07/amail-1924-beta.html">AMail 1.9.2.4 BETA</a></div></div></div><style type="text/css">@import "/style.css";
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
 </style><script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
