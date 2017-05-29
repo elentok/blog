@@ -14,54 +14,146 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">How I learned TDD</h1><div class="e-post__date">July 14th, 2012</div><div class="e-post__body"><p>I first heard about unit tests at an <a href="http://osdc.org.il/2006/">open source developer conference</a> in 2006 and since then I&#39;ve been trying to understand this concept.</p>
-<p>The first tests I wrote were with PyUnit, I don&#39;t remember what the project was, I just remember that it was horribly implemented, I didn&#39;t have any notion of the <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design">SOLID</a>) principles, so it was very difficult to write the tests and eventually I gave it up.</p>
-<p>A couple of years later I started to develop a large enterprise application in .NET which forced me to improve my software architecture skills, I started reading a lot of books on the subject:</p>
+}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">How I learned TDD</h1><div class="e-post__date">July 14th, 2012</div><div class="e-post__body"><p>I first heard about unit tests at an <a href="http://osdc.org.il/2006/">open source developer conference</a> in
+2006 and since then I&#39;ve been trying to understand this concept.</p>
+<p>The first tests I wrote were with PyUnit, I don&#39;t remember what the project was,
+I just remember that it was horribly implemented, I didn&#39;t have any notion of
+the <a href="http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a> principles, so it was very difficult to write the tests and
+eventually I gave it up.</p>
+<p>A couple of years later I started to develop a large enterprise application in
+.NET which forced me to improve my software architecture skills, I started
+reading a lot of books on the subject:</p>
 <ul>
 <li><a href="http://www.amazon.com/Patterns-Enterprise-Application-Architecture-Martin/dp/0321127420/ref=sr_1_1?ie=UTF8&amp;qid=1342270683&amp;sr=8-1">Patterns of Enterprise Application Architecture</a> by Martin Fowler</li>
-<li><a href="http://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1342270847&amp;sr=1-4">Agile Principles, Patterns, and Practices in C#</a> by Robert C. Martin and Micah Martin</li>
+<li><a href="http://www.amazon.com/Agile-Principles-Patterns-Practices-C/dp/0131857258/ref=sr_1_4?s=books&amp;ie=UTF8&amp;qid=1342270847&amp;sr=1-4">Agile Principles, Patterns, and Practices in C#</a> by Robert C. Martin and
+Micah Martin</li>
 <li><a href="http://www.amazon.com/Programming-NET-Components-Juval-Lowy/dp/0596102070/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1342270952&amp;sr=1-1">Programming .NET Components, 2nd Edition</a> by Juval Lowy</li>
-<li><a href="http://www.amazon.com/Microsoft%C2%AE-NET-Architecting-Applications-Pro-Developer/dp/073562609X/ref=sr_1_1?ie=UTF8&amp;qid=1342275329&amp;sr=8-1">Architecting Applications for the Enterprise</a> by Dino Esposito and Andrea Saltarello</li>
+<li><a href="http://www.amazon.com/Microsoft%C2%AE-NET-Architecting-Applications-Pro-Developer/dp/073562609X/ref=sr_1_1?ie=UTF8&amp;qid=1342275329&amp;sr=8-1">Architecting Applications for the Enterprise</a> by Dino Esposito and Andrea
+Saltarello</li>
 </ul>
-<p>As I was reading the books I began to realize how little I understand about software craftsmanship and how much more there is to learn.</p>
-<p>So I started writing tests again (still after the code itself), I could see the value of the tests, since it helped the stability of the application I was working on (to this day there aren&#39;t any new bugs).</p>
-<p>But the tests still didn&#39;t feel right, they didn&#39;t cover all of the scenarios, they were annoying to write, I kept having to change the original after adding the tests.</p>
-<p>Later on I wrote a <a href="http://todotxt.com">todo.txt</a> desktop editor in Python and QT, I looked for a testing framework and found <a href="http://docs.python.org/library/doctest.html">doctest</a> which allows you to write the tests inside the code (or in simple text files), like this:</p>
-<pre><code>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>      <span class="hljs-string">"""      &gt;&gt;&gt; add(0, 0)      0      &gt;&gt;&gt; add(0, 1)      1      &gt;&gt;&gt; add(1, 0)      1      &gt;&gt;&gt; add(1, 1)      2      """</span>      <span class="hljs-keyword">return</span> x+y
-</code></pre><p>As you can see the docstring includes 4 tests (0+0, 0+1, 1+0 and 1+1).</p>
-<p>This was my first attempt at TDD, it wasn&#39;t perfect, some tests were written before and some were written after the implementation, but I could feel I was starting to get it (you can see the git code in <a href="https://bitbucket.org/3david/qtodotxt">bitbucket</a>).</p>
-<p>A few years ago I started getting into Ruby on Rails, and the smartest thing I did was subscribe to <a href="https://www.destroyallsoftware.com/screencasts">Gary Bernhardt&#39;s Destroy All Software screencasts</a>, most of what I know now about TDD I learned from these screencasts (so thank you Gary!).</p>
-<p>I discovered an amazing testing framework called <a href="http://rspec.info/">RSpec</a> where you write your test in a much more readable format:</p>
-<pre><code><span class="hljs-keyword">describe</span> <span class="hljs-keyword">Cat</span> <span class="hljs-keyword">do</span>  <span class="hljs-keyword">describe</span> <span class="hljs-string">"#talk"</span> <span class="hljs-keyword">do</span>    it <span class="hljs-string">"returns 'Meow'"</span> <span class="hljs-keyword">do</span>      <span class="hljs-keyword">cat</span> = <span class="hljs-keyword">Cat</span>.new      <span class="hljs-keyword">cat</span>.talk.should == 'Meow'    end    it <span class="hljs-string">"returns 'Prrr' after eating"</span> <span class="hljs-keyword">do</span>      <span class="hljs-keyword">cat</span> = <span class="hljs-keyword">Cat</span>.new      <span class="hljs-keyword">cat</span>.eat      <span class="hljs-keyword">cat</span>.talk.should == 'Prrr'    end  endend
-</code></pre><p>When you run the tests this is the output:</p>
-<pre><code>Cat  <span class="hljs-selector-id">#talk</span>    returns <span class="hljs-string">'Meow'</span>    returns <span class="hljs-string">'Prrr'</span> after eating
-</code></pre><p>The hierarchy and the plain text for examples and contexts make the output perfect as documentation for the code.</p>
+<p>As I was reading the books I began to realize how little I understand about
+software craftsmanship and how much more there is to learn.</p>
+<p>So I started writing tests again (still after the code itself), I could see the
+value of the tests, since it helped the stability of the application I was
+working on (to this day there aren&#39;t any new bugs).</p>
+<p>But the tests still didn&#39;t feel right, they didn&#39;t cover all of the scenarios,
+they were annoying to write, I kept having to change the original after adding
+the tests.</p>
+<p>Later on I wrote a <a href="http://todotxt.com">todo.txt</a> desktop editor in Python and
+QT, I looked for a testing framework and found <a href="http://docs.python.org/library/doctest.html">doctest</a> which allows you to
+write the tests inside the code (or in simple text files), like this:</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-string">"""
+    &gt;&gt;&gt; add(0, 0)
+    0
+    &gt;&gt;&gt; add(0, 1)
+    1
+    &gt;&gt;&gt; add(1, 0)
+    1
+    &gt;&gt;&gt; add(1, 1)
+    2
+    """</span>
+    <span class="hljs-keyword">return</span> x+y
+</code></pre>
+<p>As you can see the docstring includes 4 tests (0+0, 0+1, 1+0 and 1+1).</p>
+<p>This was my first attempt at TDD, it wasn&#39;t perfect, some tests were written
+before and some were written after the implementation, but I could feel I was
+starting to get it (you can see the git code in <a href="https://bitbucket.org/3david/qtodotxt">bitbucket</a>.</p>
+<p>A few years ago I started getting into Ruby on Rails, and the smartest thing I
+did was subscribe to <a href="https://www.destroyallsoftware.com/screencasts">Gary Bernhardt&#39;s Destroy All Software screencasts</a>,
+most of what I know now about TDD I learned from these screencasts (so thank you
+Gary!).</p>
+<p>I discovered an amazing testing framework called <a href="http://rspec.info/">RSpec</a>
+where you write your test in a much more readable format:</p>
+<pre><code class="lang-ruby">describe Cat <span class="hljs-keyword">do</span>
+  describe <span class="hljs-string">"#talk"</span> <span class="hljs-keyword">do</span>
+    it <span class="hljs-string">"returns 'Meow'"</span> <span class="hljs-keyword">do</span>
+      cat = Cat.new
+      cat.talk.should == <span class="hljs-string">'Meow'</span>
+    <span class="hljs-keyword">end</span>
+    it <span class="hljs-string">"returns 'Prrr' after eating"</span> <span class="hljs-keyword">do</span>
+      cat = Cat.new
+      cat.eat
+      cat.talk.should == <span class="hljs-string">'Prrr'</span>
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>When you run the tests this is the output:</p>
+<pre><code>Cat
+  <span class="hljs-comment">#talk</span>
+    returns <span class="hljs-string">'Meow'</span>
+    returns <span class="hljs-string">'Prrr'</span> <span class="hljs-keyword">after</span> eating
+</code></pre><p>The hierarchy and the plain text for examples and contexts make the output
+perfect as documentation for the code.</p>
 <p>I learned that there are several kinds of tests:</p>
 <ul>
-<li>Unit tests: test methods or classes in isolation, all external dependencies are stubbed (if a test fails you will usually find the error in a very narrow area of code).</li>
-<li>Integration tests: test the integration between several methods or classes, some of the external dependencies can be stubbed (if a test fails its harder to find the error).</li>
-<li>Acceptance tests: test the system as a whole, without any stubs. For example, open the web application in a browser and check that certain elements exist, or execute a command line application and check that the output matches what was expected.</li>
+<li>Unit tests: test methods or classes in isolation, all external dependencies
+are stubbed (if a test fails you will usually find the error in a very narrow
+area of code).</li>
+<li>Integration tests: test the integration between several methods or classes,
+some of the external dependencies can be stubbed (if a test fails its harder
+to find the error).</li>
+<li>Acceptance tests: test the system as a whole, without any stubs. For example,
+open the web application in a browser and check that certain elements exist,
+or execute a command line application and check that the output matches what
+was expected.</li>
 </ul>
-<p>I developed various Rails applications, and with each application my technique and my understanding of TDD improved, I could feel I was making progress. Back then I only wrote unit and integration tests.</p>
-<p>I also started using a javascript testing framework called <a href="http://pivotal.github.com/jasmine/">Jasmine</a> which is basically RSpec for javascript.</p>
-<p>At first, I was progressing slowly, working with TDD was much slower than non-TDD because I kept getting stuck on tests I wasn&#39;t sure how to write. But after a few months watching lots of screencasts, reading tons of blog posts on TDD, and spending a lot of time trying to improve my code and my tests I got to a stage where I&#39;m working faster with TDD than without.</p>
-<p>Whenever I write code without writing the test first, it just feels wrong and sloppy, and I can&#39;t make excuses anymore, since it doesn&#39;t take more time.</p>
-<p>About a month ago I read <a href="http://pragprog.com/book/achbd/the-rspec-book">The RSpec Book</a> and it filled all of the holes, finally I had a full understanding of an entire BDD process that felt right to me:</p>
+<p>I developed various Rails applications, and with each application my technique
+and my understanding of TDD improved, I could feel I was making progress. Back
+then I only wrote unit and integration tests.</p>
+<p>I also started using a javascript testing framework called <a href="http://pivotal.github.com/jasmine/">Jasmine</a> which
+is basically RSpec for javascript.</p>
+<p>At first, I was progressing slowly, working with TDD was much slower than
+non-TDD because I kept getting stuck on tests I wasn&#39;t sure how to write. But
+after a few months watching lots of screencasts, reading tons of blog posts on
+TDD, and spending a lot of time trying to improve my code and my tests I got to
+a stage where I&#39;m working faster with TDD than without.</p>
+<p>Whenever I write code without writing the test first, it just feels wrong and
+sloppy, and I can&#39;t make excuses anymore, since it doesn&#39;t take more time.</p>
+<p>About a month ago I read <a href="http://pragprog.com/book/achbd/the-rspec-book">The RSpec Book</a> and it filled all of the holes,
+finally I had a full understanding of an entire BDD process that felt right to
+me:</p>
 <ul>
 <li>Write the user stories</li>
 <li>Select the user stories for the current iteration</li>
-<li>Write a cucumber feature for each story (with all of the required scenarios, I find it best to write the scenarios with a QA person or a product owner).</li>
-<li>Now start making the scenarios pass using ordinary TDD (write the actual code with unit and integration tests first).</li>
-<li>When all of the scenarios of a feature are passing, it basically means the feature is complete (now you need to do some exploratory testing to see if it really works).</li>
+<li>Write a cucumber feature for each story (with all of the required scenarios, I
+find it best to write the scenarios with a QA person or a product owner).</li>
+<li>Now start making the scenarios pass using ordinary TDD (write the actual code
+with unit and integration tests first).</li>
+<li>When all of the scenarios of a feature are passing, it basically means the
+feature is complete (now you need to do some exploratory testing to see if it
+really works).</li>
 </ul>
 <p>As I understand it there are two ways to use Cucumber:</p>
 <ul>
-<li>QA tool - writing super-specific tests (using the <a href="https://github.com/cucumber/cucumber-rails/issues/174">&quot;evil&quot; websteps</a>, I click this, I enter that, I see this...), this way your feature files get huge and you can no longer use it for documentation because it&#39;s too long and no one will read it.</li>
-<li>BDD tool - write the acceptance tests from the stories in an abstract way, so the feature files are easier to scan and understand.</li>
+<li>QA tool - writing super-specific tests (using the <a href="https://github.com/cucumber/cucumber-rails/issues/174">&quot;evil&quot; websteps</a>, I
+click this, I enter that, I see this...), this way your feature files get huge
+and you can no longer use it for documentation because it&#39;s too long and no
+one will read it.</li>
+<li>BDD tool - write the acceptance tests from the stories in an abstract way, so
+the feature files are easier to scan and understand.</li>
 </ul>
-<p>I know a lot of people don&#39;t like using Cucumber, and at first I thought so too, but after reading the RSpec book and trying it out I think that as long as you&#39;re using it as a BDD tool it can actually be more comfortable then rspec (for acceptance tests), I like the the <a href="https://github.com/cucumber/cucumber/blob/master/examples/i18n/en/features/addition.feature">Scenario Examples</a> feature allows to you to tests multiple inputs in a pretty clean way:</p>
-<pre><code><span class="hljs-keyword">Scenario</span> <span class="hljs-keyword">Outline</span>: Add two numbers  <span class="hljs-keyword">Given</span> I have entered <span class="hljs-variable">&lt;input_1&gt;</span> into the calculator  <span class="hljs-keyword">And</span> I have entered <span class="hljs-variable">&lt;input_2&gt;</span> into the calculator  <span class="hljs-keyword">When</span> I press <span class="hljs-variable">&lt;button&gt;</span>  <span class="hljs-keyword">Then</span> the result should be <span class="hljs-variable">&lt;output&gt;</span> on the screenExamples:  |<span class="hljs-string"> input_1 </span>|<span class="hljs-string"> input_2 </span>|<span class="hljs-string"> button </span>|<span class="hljs-string"> output </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> 20      </span>|<span class="hljs-string"> 30      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 50     </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> 2       </span>|<span class="hljs-string"> 5       </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 7      </span>|<span class="hljs-string">  </span>|<span class="hljs-string"> 0       </span>|<span class="hljs-string"> 40      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 40     </span>|
-</code></pre><p>The cucumber tests filled the gap between the user stories and the integration/unit tests for me and they help me stay much focused and a have a better indication of &quot;done&quot;.</p>
+<p>I know a lot of people don&#39;t like using Cucumber, and at first I thought so too,
+but after reading the RSpec book and trying it out I think that as long as
+you&#39;re using it as a BDD tool it can actually be more comfortable then rspec
+(for acceptance tests), I like the the <a href="https://github.com/cucumber/cucumber/blob/master/examples/i18n/en/features/addition.feature">Scenario Examples</a> feature allows to
+you to tests multiple inputs in a pretty clean way:</p>
+<pre><code class="lang-gherkin"><span class="hljs-keyword">Scenario</span> <span class="hljs-keyword">Outline</span>: Add two numbers
+  <span class="hljs-keyword">Given</span> I have entered <span class="hljs-variable">&lt;input_1&gt;</span> into the calculator
+  <span class="hljs-keyword">And</span> I have entered <span class="hljs-variable">&lt;input_2&gt;</span> into the calculator
+  <span class="hljs-keyword">When</span> I press <span class="hljs-variable">&lt;button&gt;</span>
+  <span class="hljs-keyword">Then</span> the result should be <span class="hljs-variable">&lt;output&gt;</span> on the screen
+
+<span class="hljs-keyword">Examples</span>:
+  |<span class="hljs-string"> input_1 </span>|<span class="hljs-string"> input_2 </span>|<span class="hljs-string"> button </span>|<span class="hljs-string"> output </span>|
+  |<span class="hljs-string"> 20      </span>|<span class="hljs-string"> 30      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 50     </span>|
+  |<span class="hljs-string"> 2       </span>|<span class="hljs-string"> 5       </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 7      </span>|
+  |<span class="hljs-string"> 0       </span>|<span class="hljs-string"> 40      </span>|<span class="hljs-string"> add    </span>|<span class="hljs-string"> 40     </span>|
+</code></pre>
+<p>The cucumber tests filled the gap between the user stories and the
+integration/unit tests for me and they help me stay much focused and a have a
+better indication of &quot;done&quot;.</p>
 <p>To sum things up, the three things I like most about this process:</p>
 <ul>
 <li>My code is a lot more stable.</li>
