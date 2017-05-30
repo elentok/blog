@@ -1,4 +1,4 @@
-<html><head><title>Mercurial: Automatically run unittests before commit - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Mercurial: Automatically run unittests before commit"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog2.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2011/08/mercurial-automatically-run-unittests.html"/><meta property="og:site_name" content="David Elentok's Blog"/><style type="text/css">body {
+<html><head><title>Mercurial: Automatically run unittests before commit - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Mercurial: Automatically run unittests before commit"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2011/08/mercurial-automatically-run-unittests.html"/><meta property="og:site_name" content="David Elentok's Blog"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -10,17 +10,18 @@ a, a:visited {
   color: #98adec;
 }
 
-.e-page {
+.e-container {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">Mercurial: Automatically run unittests before commit</h1><div class="e-post__date">August 17th, 2011</div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow
+}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post e-post--full"><h1 class="e-post__title">Mercurial: Automatically run unittests before commit</h1><div class="e-post__date">August 17th, 2011</div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow
 committing unless the unit tests pass you can use the &quot;precommit&quot; hook.</p>
 <p>In the repository root, edit the &quot;.hg\hgrc&quot; file and add the following lines:</p>
 <pre><code>[hooks]
 precommit = path-<span class="hljs-keyword">to</span>-tests-<span class="hljs-keyword">script</span>
             (e.g. <span class="hljs-string">"qtodotxt\test\runtests.py"</span>)
-</code></pre><p>It is very important that if the unit tests fail the script will return an
+</code></pre><!--more-->
+<p>It is very important that if the unit tests fail the script will return an
 non-zero exit code, in the QTodoTxt test-runner script (you can the source
 <a href="https://bitbucket.org/3david/qtodotxt/src/00db3d914c57/qtodotxt/test/runtests.py">here</a> I do the following:</p>
 <ul>

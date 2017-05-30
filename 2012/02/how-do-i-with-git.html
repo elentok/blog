@@ -1,4 +1,4 @@
-<html><head><title>How do I ??? with Git? - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="How do I ??? with Git?"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog2.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2012/02/how-do-i-with-git.html"/><meta property="og:site_name" content="David Elentok's Blog"/><style type="text/css">body {
+<html><head><title>How do I ??? with Git? - David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="How do I ??? with Git?"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2012/02/how-do-i-with-git.html"/><meta property="og:site_name" content="David Elentok's Blog"/><style type="text/css">body {
   font-family: sans-serif;
   background: #242424;
   color: #e9e9e9;
@@ -10,11 +10,11 @@ a, a:visited {
   color: #98adec;
 }
 
-.e-page {
+.e-container {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-page"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post"><h1 class="e-post__title">How do I ??? with Git?</h1><div class="e-post__date">February 3rd, 2012</div><div class="e-post__body"><p>The purpose of this post is to quickly go over some of the basic things most
+}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-post e-post--full"><h1 class="e-post__title">How do I ??? with Git?</h1><div class="e-post__date">February 3rd, 2012</div><div class="e-post__body"><p>The purpose of this post is to quickly go over some of the basic things most
 developers would require from source control software.</p>
 <p>I highly recommend reading either <a href="http://progit.org/book/">Pro Git</a> or <a href="http://book.git-scm.com">Git Community Book</a>.</p>
 <h2 id="undoing-a-commit">Undoing a commit</h2>
@@ -23,6 +23,7 @@ developers would require from source control software.</p>
 <p>If you just forgot a file or wrote the wrong comment, stage your changes and run
 <code>git commit --amend</code>. This will merge the new commit with the previous commit
 (overriding the old comment).</p>
+<!--more-->
 <h3 id="undo-option-2-revert">Undo option #2: Revert</h3>
 <p>Revert will create new commit which is the opposite of the commit you wish to
 remove, for example:</p>
