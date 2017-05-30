@@ -14,7 +14,7 @@ a, a:visited {
   margin: auto;
   max-width: 700px;
   padding: 15px;
-}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><div class="e-page"><div class="e-post e-post--short"><a class="e-post__title" href="/2011/10/css-files-tend-to-grow-very-long-and.html">Custom CSS folding in Vim</a><div class="e-post__date">October 14th, 2011</div><div class="e-post__body"><p>CSS files tend to grow very long, and even if you split them to smaller files,
+}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h1>Elentok's Blog</h1></a><div class="e-page"><div class="e-post e-post--short"><a class="e-post__title" href="/2011/10/css-files-tend-to-grow-very-long-and.html">Custom CSS folding in Vim</a><div class="e-post__date">October 14th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/vim.html">vim</a><a class="e-post-tag" href="/tags/web.html">web</a></div><div class="e-post__body"><p>CSS files tend to grow very long, and even if you split them to smaller files,
 they are still not very easy to navigate.</p>
 <p>To make things simpler I&#39;m using <a href="http://www.vim.org">Vim</a>&#39;s custom folding
 feature to fold the CSS code into sections:</p>
@@ -22,7 +22,7 @@ feature to fold the CSS code into sections:</p>
 <a href="http://4.bp.blogspot.com/-5YcC1dG8L8c/Tpg7AfecelI/AAAAAAAABMc/fL8Y-oZ5AIQ/s1600/vim-css-folding.png"><img src="http://4.bp.blogspot.com/-5YcC1dG8L8c/Tpg7AfecelI/AAAAAAAABMc/fL8Y-oZ5AIQ/s400/vim-css-folding.png" alt=""></a>
 </center>
 
-<a href="/2011/10/css-files-tend-to-grow-very-long-and.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/10/install-phpunit-on-wampserver.html">Install PHPUnit on WampServer</a><div class="e-post__date">October 12th, 2011</div><div class="e-post__body"><p>I&#39;m using WampServer 2.1 (with PHP 5.3.4) on Windows 7 64-bit.</p>
+<a href="/2011/10/css-files-tend-to-grow-very-long-and.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/10/install-phpunit-on-wampserver.html">Install PHPUnit on WampServer</a><div class="e-post__date">October 12th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/tutorial.html">tutorial</a><a class="e-post-tag" href="/tags/unittesting.html">unittesting</a><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/windows.html">windows</a><a class="e-post-tag" href="/tags/guide.html">guide</a><a class="e-post-tag" href="/tags/software.html">software</a><a class="e-post-tag" href="/tags/tips.html">tips</a><a class="e-post-tag" href="/tags/php.html">php</a><a class="e-post-tag" href="/tags/web.html">web</a></div><div class="e-post__body"><p>I&#39;m using WampServer 2.1 (with PHP 5.3.4) on Windows 7 64-bit.</p>
 <p>This guide was made with the help of <a href="http://www.slidex.co.il">Itay Adler</a>.</p>
 <a href="/2011/10/install-phpunit-on-wampserver.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/09/restart-windows-file-sharing-service-to.html">Restart the Windows File Sharing Service to fix weird problems</a><div class="e-post__date">September 23rd, 2011</div><div class="e-post__body"><p>Every once in a while I get this annoying problem where I can&#39;t a access my
 windows shares from other computers on the network, and the only way to get it
@@ -33,13 +33,13 @@ restart the &quot;Server&quot; service:</p>
 <li>Win+R =&gt; <code>services.msc</code></li>
 <li>Right click &quot;Server&quot; and click restart.</li>
 </ul>
-</div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/mercurial-automatically-run-unittests.html">Mercurial: Automatically run unittests before commit</a><div class="e-post__date">August 17th, 2011</div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow
+</div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/mercurial-automatically-run-unittests.html">Mercurial: Automatically run unittests before commit</a><div class="e-post__date">August 17th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/python.html">python</a><a class="e-post-tag" href="/tags/mercurial.html">mercurial</a><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow
 committing unless the unit tests pass you can use the &quot;precommit&quot; hook.</p>
 <p>In the repository root, edit the &quot;.hg\hgrc&quot; file and add the following lines:</p>
 <pre><code>[hooks]
 precommit = path-<span class="hljs-keyword">to</span>-tests-<span class="hljs-keyword">script</span>
             (e.g. <span class="hljs-string">"qtodotxt\test\runtests.py"</span>)
-</code></pre><a href="/2011/08/mercurial-automatically-run-unittests.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/tip-removing-changset-from-mercurial.html">Tip: Removing a changset from a Mercurial repository</a><div class="e-post__date">August 17th, 2011</div><div class="e-post__body"><p>The <code>rollback</code> command only removes the latest changeset, if you want to
+</code></pre><a href="/2011/08/mercurial-automatically-run-unittests.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/tip-removing-changset-from-mercurial.html">Tip: Removing a changset from a Mercurial repository</a><div class="e-post__date">August 17th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/dvcs.html">dvcs</a><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/mercurial.html">mercurial</a><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p>The <code>rollback</code> command only removes the latest changeset, if you want to
 remove/undo multiple changesets (and all of their descendants) from a repository
 you can use the &quot;<a href="http://mercurial.selenic.com/wiki/Strip">strip</a>&quot; method that comes with the &quot;<a href="http://mercurial.selenic.com/wiki/MqExtension">Mq</a>&quot; extension:</p>
 <h2 id="step-1-enable-the-mq-extension">Step 1 - Enable the Mq extension</h2>
@@ -49,7 +49,7 @@ you can use the &quot;<a href="http://mercurial.selenic.com/wiki/Strip">strip</a
   mq=
 </code></pre><p>If you use TortoiseHg, then you can just open the settings page, and in the
 Extensions section enable &quot;mq&quot;.</p>
-<a href="/2011/08/tip-removing-changset-from-mercurial.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/autocomplete-textbox-for-multiple.html">Autocomplete textbox for multiple keywords/tags entry in PySide</a><div class="e-post__date">August 12th, 2011</div><div class="e-post__body"><p>Last month I started writing <a href="/2011/06/qtodotxt-cross-platform-todotxt-gui.html">QTodoTxt</a>, a PySide (Python Qt bindings) GUI
+<a href="/2011/08/tip-removing-changset-from-mercurial.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/autocomplete-textbox-for-multiple.html">Autocomplete textbox for multiple keywords/tags entry in PySide</a><div class="e-post__date">August 12th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/pyside.html">pyside</a><a class="e-post-tag" href="/tags/qtodotxt.html">qtodotxt</a><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/qt.html">qt</a><a class="e-post-tag" href="/tags/python.html">python</a><a class="e-post-tag" href="/tags/projects.html">projects</a></div><div class="e-post__body"><p>Last month I started writing <a href="/2011/06/qtodotxt-cross-platform-todotxt-gui.html">QTodoTxt</a>, a PySide (Python Qt bindings) GUI
 for the <a href="http://todotxt.com/">todo.txt</a> concept.</p>
 <p>While using it for my own todo list I noticed several features that were missing
 (I intend to implement them all in due time), one of these features was
@@ -59,7 +59,7 @@ something like this:</p>
 <a href="http://3.bp.blogspot.com/-42K_XxQ5_tc/TkT6dJxiN7I/AAAAAAAABLs/NvFKWGbf7Ow/s1600/task_editor.png"><img src="http://3.bp.blogspot.com/-42K_XxQ5_tc/TkT6dJxiN7I/AAAAAAAABLs/NvFKWGbf7Ow/s400/task_editor.png" alt=""></a>
 </center>
 
-<a href="/2011/08/autocomplete-textbox-for-multiple.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/review-miui-234a-on-htc-desire.html">Review: MIUI 2.3.4a on HTC Desire</a><div class="e-post__date">August 5th, 2011</div><div class="e-post__body"><p>About five months ago I bought an HTC Desire smartphone (it came with stock
+<a href="/2011/08/autocomplete-textbox-for-multiple.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/08/review-miui-234a-on-htc-desire.html">Review: MIUI 2.3.4a on HTC Desire</a><div class="e-post__date">August 5th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/review.html">review</a><a class="e-post-tag" href="/tags/android.html">android</a></div><div class="e-post__body"><p>About five months ago I bought an HTC Desire smartphone (it came with stock
 Android 2.2), at first I was very impressed but as time went by I started
 noticing a lot of annoyances:</p>
 <ul>
@@ -70,14 +70,14 @@ appeared backwards (&quot;123&quot; would appear as &quot;321&quot;).</li>
 <li>I couldn&#39;t use the Waze navigation application while playing music because the
 music would stutter.</li>
 </ul>
-<a href="/2011/08/review-miui-234a-on-htc-desire.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/07/qtodotxt-cross-platform-todotxt-gui.html">QTodoTxt - Cross-platform todo.txt GUI</a><div class="e-post__date">July 5th, 2011</div><div class="e-post__body"><p>Hi everyone,</p>
+<a href="/2011/08/review-miui-234a-on-htc-desire.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/07/qtodotxt-cross-platform-todotxt-gui.html">QTodoTxt - Cross-platform todo.txt GUI</a><div class="e-post__date">July 5th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/ubuntu.html">ubuntu</a><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/windows.html">windows</a><a class="e-post-tag" href="/tags/linux.html">linux</a><a class="e-post-tag" href="/tags/software.html">software</a><a class="e-post-tag" href="/tags/python.html">python</a><a class="e-post-tag" href="/tags/projects.html">projects</a></div><div class="e-post__body"><p>Hi everyone,</p>
 <p>About a week ago I noticed the <a href="https://market.android.com/details?id=com.todotxt.todotxttouch">todotxt-touch</a> android application which uses
 a simple text file to store tasks (see <a href="http://todotxt.com/">http://todotxt.com/</a>) and uses Dropbox to
 synchronize the file between the mobile phone and other computers.</p>
 <p>I liked the idea of using a simple text file, but I couldn&#39;t find a good editor
 for this format so I decided to write one. Since I use both Linux and Windows I
 decided to use <a href="http://www.pyside.org/">PySide</a> (LGPL Qt bindings for Python).</p>
-<a href="/2011/07/qtodotxt-cross-platform-todotxt-gui.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/07/sharpdevelop-dark-color-scheme.html">SharpDevelop dark color scheme</a><div class="e-post__date">July 4th, 2011</div><div class="e-post__body"><p><strong>EDIT (February 11th 2012):</strong> I uploaded the scripts to <a href="https://github.com/elentok/sharpdevelop-darkcolorscheme">github</a>, I hope
+<a href="/2011/07/qtodotxt-cross-platform-todotxt-gui.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/07/sharpdevelop-dark-color-scheme.html">SharpDevelop dark color scheme</a><div class="e-post__date">July 4th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/software.html">software</a><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p><strong>EDIT (February 11th 2012):</strong> I uploaded the scripts to <a href="https://github.com/elentok/sharpdevelop-darkcolorscheme">github</a>, I hope
 this way it will never go offline again :-)</p>
 <p><strong>EDIT (July 4th 2011):</strong> I updated the URL again (<a href="http://elentok.com/stuff/SharpDevelop3-ColorSettings.zip">here</a> and also added the
 version with highlighting for .NET keywords. If I have some time I&#39;ll try to
@@ -91,7 +91,7 @@ little digging I figured out how and here&#39;s what I got:</p>
 <a href="http://1.bp.blogspot.com/_VWGZ0axfmrM/SSCSLapJNFI/AAAAAAAAAho/Ht_qcWXn6Hk/s1600-h/sharpdevelop.png"><img src="http://1.bp.blogspot.com/_VWGZ0axfmrM/SSCSLapJNFI/AAAAAAAAAho/Ht_qcWXn6Hk/s400/sharpdevelop.png" alt=""></a>
 </center>
 
-<a href="/2011/07/sharpdevelop-dark-color-scheme.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/03/wpf-pan-zoom-rotate-control.html">WPF Pan, Zoom &amp; Rotate Control</a><div class="e-post__date">March 31st, 2011</div><div class="e-post__body"><center>
+<a href="/2011/07/sharpdevelop-dark-color-scheme.html">Read more...</a></div></div><div class="e-post e-post--short"><a class="e-post__title" href="/2011/03/wpf-pan-zoom-rotate-control.html">WPF Pan, Zoom &amp; Rotate Control</a><div class="e-post__date">March 31st, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/software.html">software</a><a class="e-post-tag" href="/tags/tips.html">tips</a><a class="e-post-tag" href="/tags/wpf.html">wpf</a></div><div class="e-post__body"><center>
 <a href="http://4.bp.blogspot.com/-d3CyDHTo3l8/TZS2JJIMAaI/AAAAAAAABJw/iPeLoWp9NPM/s1600/viewera.png"><img src="http://4.bp.blogspot.com/-d3CyDHTo3l8/TZS2JJIMAaI/AAAAAAAABJw/iPeLoWp9NPM/s1600/viewera.png" alt=""></a>
 </center>
 
