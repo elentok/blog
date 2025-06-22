@@ -1,68 +1,66 @@
-<html><head><title>Keyboard Friendly WPF Applications | David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Keyboard Friendly WPF Applications"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2011/02/keyboard-friendy-wpf-applications.html"/><meta property="og:site_name" content="David Elentok's Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Keyboard Friendly WPF Applications"/><meta name="twitter:image" content="http://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">body {
-  font-family: sans-serif;
-  background: #242424;
-  color: #e9e9e9;
-  font-size: 18px;
-  line-height: 1.5;
-}
+<html><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><link rel="preload" as="image" href="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s320/AccessText.png"/><title>Keyboard Friendly WPF Applications | David Elentok&#x27;s Blog</title><meta property="og:title" content="Keyboard Friendly WPF Applications"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image"/><meta property="og:url" content="https://blog.elentok.com/2011/02/keyboard-friendy-wpf-applications.html"/><meta property="og:site_name" content="David Elentok&#x27;s Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Keyboard Friendly WPF Applications"/><meta name="twitter:image" content="https://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">
+      body {
+        font-family: sans-serif;
+        background: #242424;
+        color: #e9e9e9;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-a, a:visited {
-  color: #98adec;
-}
+      a, a:visited {
+        color: #98adec;
+      }
 
-.e-container {
-  margin: auto;
-  max-width: 700px;
-  padding: 15px;
-}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Keyboard Friendly WPF Applications</h1><div class="e-post__date">February 22nd, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/tips.html">tips</a><a class="e-post-tag" href="/tags/wpf.html">wpf</a></div><div class="e-post__body"><p>Back in my Linux-only days I used the keyboard for everything, and I barely
-touched the mouse, but during the last five years, working full-time as a .NET
-developer on Windows systems, I started to use the mouse a lot more than I used
-to.</p>
-<p>Recently, I have been trying to cut back on my mouse use and go back to
-keyboard-only. This made me notice that some of my WPF applications are not very
-keyboard friendly (keyboard shortcuts, weird tab order, etc...).</p>
-<p>In my search for improving keyboard-support on my WPF applications I found a few
-tips that I would like to share:</p>
-<!--more-->
-<h2 id="1-accesstext">1. AccessText</h2>
-<p>To add access keys to your buttons and menu item you can use the &quot;_&quot; character
-(in Windows.Forms this used to be the done using the &quot;&amp;&quot; character).</p>
-<p>Since not all of the WPF controls supports this (as far as I know, only menu
-items and buttons support this), you can use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.accesstext.aspx">AccessText</a> object for
-this, for example:</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">AccessText</span>&gt;</span>Sort _by<span class="hljs-tag">&lt;/<span class="hljs-name">AccessText</span>&gt;</span>
-</code></pre>
+      a:hover {
+        color: #c5d2f9;
+      }
+
+      .e-container {
+        margin: auto;
+        max-width: 700px;
+        padding: 15px;
+      }
+      </style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok&#x27;s Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Keyboard Friendly WPF Applications</h1><div class="e-post__date">February 22, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/tips.html">tips</a><a class="e-post-tag" href="/tags/wpf.html">wpf</a></div><div class="e-post__body"><p>Back in my Linux-only days I used the keyboard for everything, and I barely touched the mouse, but
+during the last five years, working full-time as a .NET developer on Windows systems, I started to
+use the mouse a lot more than I used to.</p>
+<p>Recently, I have been trying to cut back on my mouse use and go back to keyboard-only. This made me
+notice that some of my WPF applications are not very keyboard friendly (keyboard shortcuts, weird
+tab order, etc...).</p>
+<p>In my search for improving keyboard-support on my WPF applications I found a few tips that I would
+like to share:</p>
+<h2 id="contnts">Contnts</h2>
+<h2 id="1-access-text">1. AccessText</h2>
+<p>To add access keys to your buttons and menu item you can use the &quot;_&quot; character (in Windows.Forms
+this used to be the done using the &quot;&amp;&quot; character).</p>
+<p>Since not all of the WPF controls supports this (as far as I know, only menu items and buttons
+support this), you can use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.accesstext.aspx">AccessText</a> object for this, for example:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-xml" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">AccessText</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>Sort _by</span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">AccessText</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span></code></div></pre>
 <p>The access keys are then underlined like this:</p>
-<p><a href="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s1600/AccessText.png"><img src="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s320/AccessText.png" alt="AccessText example"></a></p>
+<p><a href="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s1600/AccessText.png"><img src="http://4.bp.blogspot.com/-SdmXMYQmbDw/TWQiEFPEEiI/AAAAAAAABJI/zf9AncnSAlU/s320/AccessText.png" alt="AccessText example"/></a></p>
 <h2 id="2-labels">2. Labels</h2>
-<p>If you want to allow the user to jump quickly to a ComboBox, ListBox or any
-control that doesn&#39;t have a label (like a button or a menu item) you can add
-your own label:</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Label</span> <span class="hljs-attr">Target</span>=<span class="hljs-string">"{Binding ElementName=myCombo}"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">AccessText</span>&gt;</span>_My Combo:<span class="hljs-tag">&lt;/<span class="hljs-name">AccessText</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">Label</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">ComboBox</span> <span class="hljs-attr">x:Name</span>=<span class="hljs-string">"myCombo"</span> <span class="hljs-attr">...</span> /&gt;</span>
-</code></pre>
-<h2 id="3-inputbinding">3. InputBinding</h2>
-<p>You can use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.uielement.inputbindings.aspx">InputBindings</a> property to bind keyboard shortcuts to
-existing command.</p>
-<p>For example, I have a ListBox that has a context menu, that context menu has a
-menu item that is binded to the &quot;RefreshCommand&quot; property of the view model, and
-I want to make the F5 run this command. To do that I add an input binding like
-this:</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ListBox</span> <span class="hljs-attr">...</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ListBox.InputBindings</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">KeyBinding</span> <span class="hljs-attr">Key</span>=<span class="hljs-string">"F5"</span> <span class="hljs-attr">Command</span>=<span class="hljs-string">"{Binding RefreshCommand}"</span> /&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ListBox.InputBindings</span>&gt;</span>
-</code></pre>
-<h2 id="4-tabindex">4. TabIndex</h2>
-<p>Sometimes when you&#39;re tabbing between controls it gets messed up, to fix it you
-can use the &quot;TabIndex&quot; property and set numeric values for each control. The
-control with a tab index of 0 will be the first to focus.</p>
+<p>If you want to allow the user to jump quickly to a ComboBox, ListBox or any control that doesn&#x27;t
+have a label (like a button or a menu item) you can add your own label:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-xml" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">Label</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%)">Target</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">{Binding ElementName=myCombo}</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>  </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">AccessText</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>_My Combo:</span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">AccessText</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span></span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">Label</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span></span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">ComboBox</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%);-opacity:0.8">x:</span><span class="token" style="color:hsl(29, 54%, 61%)">Name</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">myCombo</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%)">...</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(220, 14%, 71%)">/&gt;</span></code></div></pre>
+<h2 id="3-input-binding">3. InputBinding</h2>
+<p>You can use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.uielement.inputbindings.aspx">InputBindings</a> property to bind keyboard shortcuts to existing command.</p>
+<p>For example, I have a ListBox that has a context menu, that context menu has a menu item that is
+binded to the &quot;RefreshCommand&quot; property of the view model, and I want to make the F5 run this
+command. To do that I add an input binding like this:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-xml" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">ListBox</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%)">...</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>  </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">ListBox.InputBindings</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>    </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">KeyBinding</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%)">Key</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">F5</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%)">Command</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">{Binding RefreshCommand}</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(220, 14%, 71%)">/&gt;</span><span>
+</span><span>  </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">ListBox.InputBindings</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span></code></div></pre>
+<h2 id="4-tab-index">4. TabIndex</h2>
+<p>Sometimes when you&#x27;re tabbing between controls it gets messed up, to fix it you can use the
+&quot;TabIndex&quot; property and set numeric values for each control. The control with a tab index of 0 will
+be the first to focus.</p>
 <h2 id="5-focusable">5. Focusable</h2>
-<p>Sometimes you have controls that the user shouldn&#39;t focus on (it sometimes
-happens when overriding control templates), to disable a control from being
-focused on, set the &quot;Focusable&quot; property to &quot;False&quot;, this way when the user tabs
-between controls this control will be skipped.</p>
-</div><div class="e-post__next"><span>Next:</span><a href="/2011/03/keyboard-friendly-wpf-popup-control.html">Keyboard Friendly WPF Popup Control</a></div></div></div><style type="text/css">@import "/style.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');</style></body></html>
+<p>Sometimes you have controls that the user shouldn&#x27;t focus on (it sometimes happens when overriding
+control templates), to disable a control from being focused on, set the &quot;Focusable&quot; property to
+&quot;False&quot;, this way when the user tabs between controls this control will be skipped.</p></div></div><div class="e-post__next"><span>Next:</span><a class="e-post__next" href="/2010/10/record-stream-using-vlc.html">Record a stream using VLC</a></div></div><style type="text/css">
+          @import "/style.css";
+          @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
+          </style></body></html>

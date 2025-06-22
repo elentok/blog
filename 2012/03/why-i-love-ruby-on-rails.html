@@ -1,37 +1,42 @@
-<html><head><title>Why I love Ruby on Rails | David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Why I love Ruby on Rails"/><meta property="og:description" content="The purpose of this post is to share some of the things I love about Ruby on
-Rails."/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2012/03/why-i-love-ruby-on-rails.html"/><meta property="og:site_name" content="David Elentok's Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Why I love Ruby on Rails"/><meta name="twitter:image" content="http://blog.elentok.com/avatar-og.png"/><meta name="twitter:description" content="The purpose of this post is to share some of the things I love about Ruby on
-Rails."/><style type="text/css">body {
-  font-family: sans-serif;
-  background: #242424;
-  color: #e9e9e9;
-  font-size: 18px;
-  line-height: 1.5;
-}
+<html><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><title>Why I love Ruby on Rails | David Elentok&#x27;s Blog</title><meta property="og:title" content="Why I love Ruby on Rails"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image"/><meta property="og:url" content="https://blog.elentok.com/2012/03/why-i-love-ruby-on-rails.html"/><meta property="og:site_name" content="David Elentok&#x27;s Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Why I love Ruby on Rails"/><meta name="twitter:image" content="https://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">
+      body {
+        font-family: sans-serif;
+        background: #242424;
+        color: #e9e9e9;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-a, a:visited {
-  color: #98adec;
-}
+      a, a:visited {
+        color: #98adec;
+      }
 
-.e-container {
-  margin: auto;
-  max-width: 700px;
-  padding: 15px;
-}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Why I love Ruby on Rails</h1><div class="e-post__date">March 20th, 2012</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/rails.html">rails</a><a class="e-post-tag" href="/tags/ruby.html">ruby</a><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/software.html">software</a><a class="e-post-tag" href="/tags/web.html">web</a></div><div class="e-post__body"><p>About four months ago I started writing a couple of projects in Ruby on Rails,
+      a:hover {
+        color: #c5d2f9;
+      }
+
+      .e-container {
+        margin: auto;
+        max-width: 700px;
+        padding: 15px;
+      }
+      </style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok&#x27;s Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Why I love Ruby on Rails</h1><div class="e-post__date">March 20, 2012</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/rails.html">rails</a><a class="e-post-tag" href="/tags/ruby.html">ruby</a><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/software.html">software</a><a class="e-post-tag" href="/tags/web.html">web</a></div><div class="e-post__body"><p>About four months ago I started writing a couple of projects in Ruby on Rails,
 and the more I used it, the more amazed I was at how easy it was and how fast I
 was advancing.</p>
 <p>The purpose of this post is to share some of the things I love about Ruby on
 Rails.</p>
-<!--more-->
 <h2 id="1-everything-has-its-place">1. Everything has its place</h2>
 <p>Whenever I worked on a web project one of the things that always annoyed me was
 that the directory structure never felt &quot;right&quot;, I kept moving files around,
 trying to make it better, but it was never perfect.</p>
 <p>Ruby on Rails apps have the best directory structure I have ever seen (part of
-the reason it&#39;s so good is because of the asset pipeline which I&#39;ll talk about
+the reason it&#x27;s so good is because of the asset pipeline which I&#x27;ll talk about
 later):</p>
 <ul>
-<li>root/<ul>
-<li>app/<ul>
+<li>root/
+<ul>
+<li>app/
+<ul>
 <li>assets/ - app-only images, stylesheets and javascript (no 3rd party)</li>
 <li>models/ - active record models</li>
 <li>views/ - views (haml, erb, etc...)</li>
@@ -46,7 +51,8 @@ later):</p>
 <li>log/</li>
 <li>public/</li>
 <li>script/ - utility scripts</li>
-<li>spec/ - all tests<ul>
+<li>spec/ - all tests
+<ul>
 <li>controllers/</li>
 <li>factories/</li>
 <li>models/</li>
@@ -55,7 +61,8 @@ later):</p>
 </ul>
 </li>
 <li>vendor/ - 3rd party libraries (the place for jquery plugins, twitter
-bootstrap, html5 boilerplate, etc...)<ul>
+bootstrap, html5 boilerplate, etc...)
+<ul>
 <li>assets/</li>
 <li>plugins/</li>
 </ul>
@@ -68,83 +75,77 @@ put it, everything has its place.</p>
 <p>To create a new rails project (with the entire directory structure) just run
 <code>rails new {app-name}</code>.</p>
 <h2 id="2-active-record-migrations">2. Active Record Migrations</h2>
-<p>ActiveRecord is Ruby on Rails&#39; default database layer, its best feature in my
+<p>ActiveRecord is Ruby on Rails&#x27; default database layer, its best feature in my
 opinion is migrations.</p>
 <p>A migration is basically a database patch, for example, a migration that adds a
 new table looks like this:</p>
-<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreateBooks</span> &lt; ActiveRecord::Migration</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change</span></span>
-    create_table <span class="hljs-symbol">:books</span> <span class="hljs-keyword">do</span> <span class="hljs-params">|t|</span>
-      t.string <span class="hljs-symbol">:title</span>
-      t.string <span class="hljs-symbol">:summary</span>
-      t.string <span class="hljs-symbol">:author</span>
-      t.float <span class="hljs-symbol">:price</span>
-      t.timestamps
-    <span class="hljs-keyword">end</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(286, 60%, 67%)">class</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">CreateBooks</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span> ActiveRecord</span><span class="token double-colon" style="color:hsl(220, 14%, 71%)">::</span><span>Migration
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">def</span><span> </span><span class="token method-definition" style="color:hsl(207, 82%, 66%)">change</span><span>
+</span><span>    create_table </span><span class="token" style="color:hsl(355, 65%, 65%)">:books</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">|</span><span>t</span><span class="token" style="color:hsl(207, 82%, 66%)">|</span><span>
+</span><span>      t</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>string </span><span class="token" style="color:hsl(355, 65%, 65%)">:title</span><span>
+</span><span>      t</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>string </span><span class="token" style="color:hsl(355, 65%, 65%)">:summary</span><span>
+</span><span>      t</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>string </span><span class="token" style="color:hsl(355, 65%, 65%)">:author</span><span>
+</span><span>      t</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>float </span><span class="token" style="color:hsl(355, 65%, 65%)">:price</span><span>
+</span><span>      t</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>timestamps
+</span><span>    </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span></code></div></pre>
 <p>The <code>t.timestamps</code> automatically adds the &quot;last updated&quot; and &quot;date created&quot;
 fields.</p>
 <p>Another example of a migration is changing the type of a field:</p>
-<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConvertPriceToInteger</span> &lt; ActiveRecord::Migration</span>
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">up</span></span>
-    change_column <span class="hljs-symbol">:books</span>, <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">:integer</span>
-  <span class="hljs-keyword">end</span>
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">down</span></span>
-    change_column <span class="hljs-symbol">:books</span>, <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">:float</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(286, 60%, 67%)">class</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">ConvertPriceToInteger</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span> ActiveRecord</span><span class="token double-colon" style="color:hsl(220, 14%, 71%)">::</span><span>Migration
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">def</span><span> </span><span class="token method-definition" style="color:hsl(207, 82%, 66%)">up</span><span>
+</span><span>    change_column </span><span class="token" style="color:hsl(355, 65%, 65%)">:books</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">:price</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">:integer</span><span>
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span>
+<span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">def</span><span> </span><span class="token method-definition" style="color:hsl(207, 82%, 66%)">down</span><span>
+</span><span>    change_column </span><span class="token" style="color:hsl(355, 65%, 65%)">:books</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">:price</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">:float</span><span>
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span></code></div></pre>
 <p>You can write complex migrations use active record models to convert data
 (instead of writing lots of SQL code).</p>
 <p>You can take any version of the database and run the new migrations on it by
 just running <code>rake db:migrate</code>.</p>
 <p>As your application grows and changes, your database needs to adapt as well, and
-this is the best solution I&#39;ve found for this problem (at least for non-NoSQL
+this is the best solution I&#x27;ve found for this problem (at least for non-NoSQL
 databases).</p>
 <h2 id="3-active-record-validations">3. Active Record Validations</h2>
 <p>You can define model validations like this:</p>
-<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span> &lt; ActiveRecord::Base</span>
-  validates_presence_of <span class="hljs-symbol">:title</span>, <span class="hljs-symbol">:author</span>, <span class="hljs-symbol">:price</span>
-  validates <span class="hljs-symbol">:price</span>, <span class="hljs-symbol">numericality:</span> { <span class="hljs-symbol">greater_than:</span> <span class="hljs-number">0</span> }
-<span class="hljs-keyword">end</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(286, 60%, 67%)">class</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">Book</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span> ActiveRecord</span><span class="token double-colon" style="color:hsl(220, 14%, 71%)">::</span><span>Base
+</span><span>  validates_presence_of </span><span class="token" style="color:hsl(355, 65%, 65%)">:title</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">:author</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">:price</span><span>
+</span><span>  validates </span><span class="token" style="color:hsl(355, 65%, 65%)">:price</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">numericality</span><span class="token" style="color:hsl(207, 82%, 66%)">:</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">{</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">greater_than</span><span class="token" style="color:hsl(207, 82%, 66%)">:</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">0</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">}</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span></code></div></pre>
 <p>And when you try to save the object:</p>
-<pre><code class="lang-ruby">mybook = Book.new
-mybook.save() <span class="hljs-comment"># returns false</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>mybook </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">Book</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span class="token" style="color:hsl(286, 60%, 67%)">new</span><span>
+</span><span>mybook</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>save</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span> </span><span class="token" style="color:hsl(220, 10%, 40%);font-style:italic"># returns false</span></code></div></pre>
 <p>it will return false and you can access the validation errors via
 <code>mybook.errors</code>.</p>
 <p>You can also add custom validations like:</p>
-<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Book</span> &lt; ActiveRecord::Base</span>
-  validate <span class="hljs-symbol">:my_custom_validation</span>
-
-  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_custom_validation</span></span>
-    <span class="hljs-keyword">unless</span> <span class="hljs-regexp">/^a/</span>.match(title).<span class="hljs-literal">nil</span>?
-      errors.add <span class="hljs-symbol">:title</span>, \
-        <span class="hljs-string">'books starting with "a" are not allowed!'</span>
-    <span class="hljs-keyword">end</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(286, 60%, 67%)">class</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">Book</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span> ActiveRecord</span><span class="token double-colon" style="color:hsl(220, 14%, 71%)">::</span><span>Base
+</span><span>  validate </span><span class="token" style="color:hsl(355, 65%, 65%)">:my_custom_validation</span><span>
+</span>
+<span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">def</span><span> </span><span class="token method-definition" style="color:hsl(207, 82%, 66%)">my_custom_validation</span><span>
+</span><span>    </span><span class="token" style="color:hsl(286, 60%, 67%)">unless</span><span> </span><span class="token regex-literal" style="color:hsl(95, 38%, 62%)">/^a/</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>match</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>title</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span class="token" style="color:hsl(286, 60%, 67%)">nil</span><span class="token" style="color:hsl(207, 82%, 66%)">?</span><span>
+</span><span>      errors</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>add </span><span class="token" style="color:hsl(355, 65%, 65%)">:title</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> \
+</span><span>        </span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&#x27;books starting with &quot;a&quot; are not allowed!&#x27;</span><span>
+</span><span>    </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span></code></div></pre>
 <p>The best thing about this is that it connects directly with the views generated
 by the <code>rails g scaffold</code> command so you just define the validations in one
 place and the errors will be displayed in the browser.</p>
 <h2 id="4-active-record-relationships">4. Active Record Relationships</h2>
 <p>Active Record also allows a simple way to define relationships between models,
 for example:</p>
-<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LineItem</span> &lt; ActiveRecord::Base</span>
-  belongs_to <span class="hljs-symbol">:order</span>
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Order</span> &lt; ActiveRecord::Base</span>
-  has_many <span class="hljs-symbol">:lineitem</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(286, 60%, 67%)">class</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">LineItem</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span> ActiveRecord</span><span class="token double-colon" style="color:hsl(220, 14%, 71%)">::</span><span>Base
+</span><span>  belongs_to </span><span class="token" style="color:hsl(355, 65%, 65%)">:order</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span>
+<span></span><span class="token" style="color:hsl(286, 60%, 67%)">class</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">Order</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span> ActiveRecord</span><span class="token double-colon" style="color:hsl(220, 14%, 71%)">::</span><span>Base
+</span><span>  has_many </span><span class="token" style="color:hsl(355, 65%, 65%)">:lineitem</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span></code></div></pre>
 <p>This allows you do do stuff like <code>lineItem.order.name</code> and
-<code>order.lineitems.length</code> (by default this links aren&#39;t loaded, they will be
+<code>order.lineitems.length</code> (by default this links aren&#x27;t loaded, they will be
 loaded when you try to access the <code>lineitems</code> or <code>order</code> properties or if you
 use the <code>include</code> option when querying the model).</p>
 <h2 id="5-asset-pipeline">5. Asset Pipeline</h2>
@@ -153,12 +154,12 @@ Coffeescript instead of plain CSS and Javascript.</p>
 <p>Both languages allow writing much cleaner and readable code, and SASS adds a lot
 of useful features to CSS like mixins, inheritance, variables and more.</p>
 <p>The only problem with using these languages is that they must be compiled into
-css and javascript for the browser to understand them. Yhat&#39;s where the asset
+css and javascript for the browser to understand them. Yhat&#x27;s where the asset
 pipeline comes in, it will automatically find all assets (stylesheets,
 javascripts, coffeescripts) in the app/assets and vendor/ directories and serve
 them to the client.</p>
 <p>A very useful feature of this is that in development mode all of the assets are
-served independently (so it&#39;s easier to debug), but when switching to production
+served independently (so it&#x27;s easier to debug), but when switching to production
 mode all of the assets are combined into a single compressed file (one .js file
 and one .css file, but you can customize it to create packages).</p>
 <p>The asset pipeline also takes care of caching the resources and cache-busting
@@ -168,56 +169,53 @@ app/assets/ directory and rails will take care of the rest.</p>
 <h2 id="6-localization">6. Localization</h2>
 <p>Rails has the best localization implementation I have ever worked with, all you
 need is a simple config/locales/{lang}.yml file which looks something like this:</p>
-<pre><code class="lang-yml"><span class="hljs-attr">he:</span>
-<span class="hljs-attr">  errors:</span>
-<span class="hljs-attr">    messages:</span>
-<span class="hljs-attr">      blank:</span> <span class="hljs-string">אנא</span> <span class="hljs-string">הכנס</span> <span class="hljs-string">ערך</span>
-<span class="hljs-attr">      equal_to:</span> <span class="hljs-string">חייב</span> <span class="hljs-string">להיות</span> <span class="hljs-string">שווה</span> <span class="hljs-string">ל-%{count}</span>
-<span class="hljs-attr">  number:</span>
-<span class="hljs-attr">    separator:</span> <span class="hljs-string">.</span>
-<span class="hljs-attr">    unit:</span> <span class="hljs-string">$</span>
-<span class="hljs-attr">  human:</span>
-<span class="hljs-attr">    decimal_units:</span>
-<span class="hljs-attr">      units:</span>
-<span class="hljs-attr">        billion:</span> <span class="hljs-string">ביליון</span>
-<span class="hljs-attr">        thousand:</span> <span class="hljs-string">אלף</span>
-<span class="hljs-attr">    storage_units:</span>
-<span class="hljs-attr">      units:</span>
-<span class="hljs-attr">        byte:</span>
-<span class="hljs-attr">          one:</span> <span class="hljs-string">בייט</span>
-<span class="hljs-attr">          other:</span> <span class="hljs-string">בתים</span>
-<span class="hljs-attr">        gb:</span> <span class="hljs-string">ג'יגה-בייט</span>
-<span class="hljs-attr">  date:</span>
-<span class="hljs-attr">    formats:</span>
-<span class="hljs-attr">      default:</span> <span class="hljs-string">!</span> <span class="hljs-string">'%d.%m.%y'</span>
-<span class="hljs-attr">      long:</span> <span class="hljs-string">!</span> <span class="hljs-string">'%e ב%B, %Y'</span>
-<span class="hljs-attr">      short:</span> <span class="hljs-string">!</span> <span class="hljs-string">'%e %b'</span>
-<span class="hljs-attr">  activerecord:</span>
-<span class="hljs-attr">    models:</span>
-<span class="hljs-attr">      attributes:</span>
-<span class="hljs-attr">        book:</span>
-<span class="hljs-attr">          title:</span> <span class="hljs-string">שם</span>
-<span class="hljs-attr">          summary:</span> <span class="hljs-string">תקציר</span>
-<span class="hljs-attr">          author:</span> <span class="hljs-string">סופר</span>
-<span class="hljs-attr">          price:</span> <span class="hljs-string">מחיר</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-yml" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token key" style="color:hsl(29, 54%, 61%)">he</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>  </span><span class="token key" style="color:hsl(29, 54%, 61%)">errors</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">messages</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">blank</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> אנא הכנס ערך
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">equal_to</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> חייב להיות שווה ל</span><span class="token" style="color:hsl(220, 14%, 71%)">-</span><span>%</span><span class="token" style="color:hsl(220, 14%, 71%)">{</span><span>count</span><span class="token" style="color:hsl(220, 14%, 71%)">}</span><span>
+</span><span>  </span><span class="token key" style="color:hsl(29, 54%, 61%)">number</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">separator</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> .
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">unit</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> $
+</span><span>  </span><span class="token key" style="color:hsl(29, 54%, 61%)">human</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">decimal_units</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">units</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>        </span><span class="token key" style="color:hsl(29, 54%, 61%)">billion</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> ביליון
+</span><span>        </span><span class="token key" style="color:hsl(29, 54%, 61%)">thousand</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> אלף
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">storage_units</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">units</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>        </span><span class="token key" style="color:hsl(29, 54%, 61%)">byte</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>          </span><span class="token key" style="color:hsl(29, 54%, 61%)">one</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> בייט
+</span><span>          </span><span class="token key" style="color:hsl(29, 54%, 61%)">other</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> בתים
+</span><span>        </span><span class="token key" style="color:hsl(29, 54%, 61%)">gb</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> ג&#x27;יגה</span><span class="token" style="color:hsl(220, 14%, 71%)">-</span><span>בייט
+</span><span>  </span><span class="token key" style="color:hsl(29, 54%, 61%)">date</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">formats</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">default</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">!</span><span> </span><span class="token" style="color:hsl(95, 38%, 62%)">&#x27;%d.%m.%y&#x27;</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">long</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">!</span><span> </span><span class="token" style="color:hsl(95, 38%, 62%)">&#x27;%e ב%B, %Y&#x27;</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">short</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">!</span><span> </span><span class="token" style="color:hsl(95, 38%, 62%)">&#x27;%e %b&#x27;</span><span>
+</span><span>  </span><span class="token key" style="color:hsl(29, 54%, 61%)">activerecord</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>    </span><span class="token key" style="color:hsl(29, 54%, 61%)">models</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>      </span><span class="token key" style="color:hsl(29, 54%, 61%)">attributes</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>        </span><span class="token key" style="color:hsl(29, 54%, 61%)">book</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>          </span><span class="token key" style="color:hsl(29, 54%, 61%)">title</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> שם
+</span><span>          </span><span class="token key" style="color:hsl(29, 54%, 61%)">summary</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> תקציר
+</span><span>          </span><span class="token key" style="color:hsl(29, 54%, 61%)">author</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> סופר
+</span><span>          </span><span class="token key" style="color:hsl(29, 54%, 61%)">price</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span> מחיר</span></code></div></pre>
 <p>This will automatically be loaded by Rails when once you change the locale to
 &quot;he&quot;, and will affect date/time formatting, views that use form helpers such as
 <code>f.label_for</code>.</p>
 <p>If you just want to get the localized version of on of these items you can do:</p>
-<pre><code class="lang-ruby">I18n.t(<span class="hljs-string">'activerecord.models.attributes.book.title'</span>)
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>I18n</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>t</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&#x27;activerecord.models.attributes.book.title&#x27;</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span></code></div></pre>
 <p>And it will translate it for you.</p>
 <p>It also supports pluralization like this:</p>
-<pre><code class="lang-ruby">I18n.t(<span class="hljs-string">'human.storage_units.byte'</span>, <span class="hljs-symbol">count:</span> <span class="hljs-number">4</span>)
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>I18n</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>t</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&#x27;human.storage_units.byte&#x27;</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> </span><span class="token" style="color:hsl(355, 65%, 65%)">count</span><span class="token" style="color:hsl(207, 82%, 66%)">:</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">4</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span></code></div></pre>
 <p>Which will return &quot;4 בתים&quot;.</p>
 <p>This is just brilliant, think how many times you wrote code like this:</p>
-<pre><code><span class="hljs-keyword">if</span> (count == <span class="hljs-number">1</span>)
-  ... <span class="hljs-built_in">write</span> <span class="hljs-keyword">the</span> singular <span class="hljs-built_in">version</span>
-<span class="hljs-keyword">else</span>
-  ... <span class="hljs-built_in">write</span> <span class="hljs-keyword">the</span> plural <span class="hljs-built_in">version</span>
-</code></pre><p>you don&#39;t need that anymore!</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-plaintext" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>if (count == 1)
+</span>  ... write the singular version
+<!-- -->else
+<!-- -->  ... write the plural version</code></div></pre>
+<p>you don&#x27;t need that anymore!</p>
 <h2 id="7-test-driven">7. Test Driven</h2>
 <p>Ruby is the most test friendly platform I have ever used, everything can be
 stubbed and mocked.</p>
@@ -227,43 +225,41 @@ want to add tests all you have to do is open the relevant file and start
 writing.</p>
 <p>The testing framework I like the most with ruby is RSpec, the hierarchal format
 of the tests makes them really easy to both write and read, for example:</p>
-<pre><code class="lang-ruby">describe Book <span class="hljs-keyword">do</span>
-  describe <span class="hljs-string">"#save"</span> <span class="hljs-keyword">do</span>
-    context <span class="hljs-string">"with no values"</span> <span class="hljs-keyword">do</span>
-      before <span class="hljs-symbol">:each</span> <span class="hljs-keyword">do</span>
-        @book = Book.new()
-        @result = @book.save()
-      <span class="hljs-keyword">end</span>
-
-      it <span class="hljs-string">"returns false"</span> <span class="hljs-keyword">do</span>
-        @result.should be_false
-      <span class="hljs-keyword">end</span>
-
-      it <span class="hljs-string">"has an error for the 'title' field"</span> <span class="hljs-keyword">do</span>
-        @result.errors[<span class="hljs-symbol">:title</span>].type.should == <span class="hljs-string">'required'</span>
-      <span class="hljs-keyword">end</span>
-    <span class="hljs-keyword">end</span>
-  <span class="hljs-keyword">end</span>
-<span class="hljs-keyword">end</span>
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-ruby" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>describe Book </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span>
+</span><span>  describe </span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&quot;#save&quot;</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span>
+</span><span>    context </span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&quot;with no values&quot;</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span>
+</span><span>      before </span><span class="token" style="color:hsl(355, 65%, 65%)">:each</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span>
+</span><span>        </span><span class="token" style="color:hsl(207, 82%, 66%)">@book</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">Book</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span class="token" style="color:hsl(286, 60%, 67%)">new</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span>
+</span><span>        </span><span class="token" style="color:hsl(207, 82%, 66%)">@result</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> </span><span class="token" style="color:hsl(207, 82%, 66%)">@book</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>save</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span>
+</span><span>      </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span>
+<span>      it </span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&quot;returns false&quot;</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span>
+</span><span>        </span><span class="token" style="color:hsl(207, 82%, 66%)">@result</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>should be_false
+</span><span>      </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span>
+<span>      it </span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&quot;has an error for the &#x27;title&#x27; field&quot;</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">do</span><span>
+</span><span>        </span><span class="token" style="color:hsl(207, 82%, 66%)">@result</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>errors</span><span class="token" style="color:hsl(220, 14%, 71%)">[</span><span class="token" style="color:hsl(355, 65%, 65%)">:title</span><span class="token" style="color:hsl(220, 14%, 71%)">]</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>type</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>should </span><span class="token" style="color:hsl(207, 82%, 66%)">==</span><span> </span><span class="token string-literal" style="color:hsl(95, 38%, 62%)">&#x27;required&#x27;</span><span>
+</span><span>      </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span>    </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">end</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">end</span></code></div></pre>
 <p>When running rspec the output will look like this:</p>
-<pre><code>Done
-  <span class="hljs-comment">#save</span>
-    <span class="hljs-keyword">with</span> no values
-      returns <span class="hljs-literal">false</span>
-      has <span class="hljs-keyword">an</span> error <span class="hljs-keyword">for</span> <span class="hljs-keyword">the</span> <span class="hljs-string">'title'</span> field
-</code></pre><p>Very readable! very comfortable to write.</p>
-<p>There&#39;s another testing framework for Rails called &quot;Cucumber&quot;, it&#39;s designed for acceptance tests mostly (from what I understand) and it looks like this:</p>
-<pre><code class="lang-gherkin"><span class="hljs-keyword">Feature</span>: name of the feature
-As a user
-I want this feature
-So I will have this feature
-
-  <span class="hljs-keyword">Scenario</span>: doing something
-  <span class="hljs-keyword">Given</span> a form
-  <span class="hljs-keyword">When</span> I click the button
-  <span class="hljs-keyword">Then</span> something happens
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-plaintext" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>Done
+</span>  #save
+<!-- -->    with no values
+<!-- -->      returns false
+<!-- -->      has an error for the &#x27;title&#x27; field</code></div></pre>
+<p>Very readable! very comfortable to write.</p>
+<p>There&#x27;s another testing framework for Rails called &quot;Cucumber&quot;, it&#x27;s designed for acceptance tests mostly (from what I understand) and it looks like this:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-gherkin" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token feature" style="color:hsl(286, 60%, 67%)">Feature:</span><span class="token feature" style="color:hsl(355, 65%, 65%)"> name of the feature</span><span class="token feature">
+</span><span class="token feature">As a user
+</span><span class="token feature">I want this feature
+</span><span class="token feature">So I will have this feature
+</span><span class="token feature"></span><span>
+</span><span>  </span><span class="token scenario" style="color:hsl(286, 60%, 67%)">Scenario:</span><span class="token scenario" style="color:hsl(355, 65%, 65%)"> doing something</span><span>
+</span><span>  </span><span class="token" style="color:hsl(29, 54%, 61%)">Given</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">a</span><span> form
+</span><span>  </span><span class="token" style="color:hsl(29, 54%, 61%)">When</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">I</span><span> click the button
+</span><span>  </span><span class="token" style="color:hsl(29, 54%, 61%)">Then</span><span> something happens</span></code></div></pre>
 <p>I use this with capybara and selenium to automate acceptance tests, and what I
 love about this is this:</p>
 <ul>
@@ -273,23 +269,23 @@ product owners.</li>
 they offer great guidance and focus for the development process.</li>
 </ul>
 <p>An annoying issue about running tests in Rails is that it takes a few seconds to
-load the rails framework. Fortunately, there&#39;s a tool called
+load the rails framework. Fortunately, there&#x27;s a tool called
 &quot;<a href="http://spork.rubyforge.org/">Spork</a>&quot; that fixes this problem by running a
 server with a preloaded version of the rails server and forks a copy of it every
-time you run your tests. I&#39;ve been using it for the past months and it has
+time you run your tests. I&#x27;ve been using it for the past months and it has
 improved my tests from ~4 seconds to ~50 milliseconds, so I highly recommend it.</p>
 <p>Database testing!!</p>
 <p>When running your tests Rails connects to a testing database (can be a local
 sqlite db) so you can run all of sorts of database-dependant tests (unique
 values, etc...).</p>
-<h2 id="8-there-s-a-gem-for-your-every-need">8. There&#39;s a gem for your every need</h2>
+<h2 id="8-theres-a-gem-for-your-every-need">8. There&#x27;s a gem for your every need</h2>
 <p>As of the time of writing this there are 35,950 gems in
 <a href="http://rubygems.org">rubygems</a>. I have only scraped the surface and these are
-some of the really cool gems I&#39;ve found:</p>
+some of the really cool gems I&#x27;ve found:</p>
 <ul>
 <li><a href="https://github.com/thoughtbot/paperclip">Paperclip</a> - adds file attachment
 support to active record model (just add an &quot;:attachment&quot; field to your model
-and you&#39;re done).</li>
+and you&#x27;re done).</li>
 <li><a href="https://github.com/plataformatec/devise">Devise</a> - adds user authentication
 support, very easy to use (took me about 5 minutes to get it working the first
 time I used it), very customizable (it can create its own models or attach to
@@ -301,16 +297,16 @@ replacement with a straightforward definition syntax</li>
 <li><a href="https://github.com/guard/guard-livereload">LiveReload</a> - automatically
 reloads your browser when files in the project directory has changed.</li>
 </ul>
-<h2 id="9-ruby-is-awesome-">9. Ruby is awesome!</h2>
-<p>I just love this language! these examples are freakin&#39; amazing:</p>
-<pre><code><span class="hljs-keyword">if</span> <span class="hljs-built_in">date</span> &lt; <span class="hljs-number">1.</span><span class="hljs-built_in">year</span>.ago
-  ...
-<span class="hljs-keyword">end</span>
-
-<span class="hljs-number">3.</span><span class="hljs-keyword">times</span> do
-  ...
-<span class="hljs-keyword">end</span>
-</code></pre><p>And I love the fact that you don&#39;t need brackets to call a method.</p>
+<h2 id="9-ruby-is-awesome">9. Ruby is awesome!</h2>
+<p>I just love this language! these examples are freakin&#x27; amazing:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-plaintext" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>if date &lt; 1.year.ago
+</span>  ...
+<!-- -->end
+<!-- -->
+<!-- -->3.times do
+<!-- -->  ...
+<!-- -->end</code></div></pre>
+<p>And I love the fact that you don&#x27;t need brackets to call a method.</p>
 <h2 id="10-vim-is-the-perfect-rails-ide">10. Vim is the perfect Rails IDE</h2>
 <p>With tons of rails-related Vim plugins such as
 <a href="http://www.vim.org/scripts/script.php?script_id=1567">vim-rails</a>,
@@ -318,23 +314,24 @@ reloads your browser when files in the project directory has changed.</li>
 <a href="https://github.com/tpope/vim-haml">vim-haml</a>,
 <a href="https://github.com/kchmck/vim-coffee-script">vim-coffeescript</a> and many more I
 have been really enjoying working on Ruby on Rails projects with Vim.</p>
-<p>I have been using Vim for about 15 years now, and I&#39;m amazed at how I keep
+<p>I have been using Vim for about 15 years now, and I&#x27;m amazed at how I keep
 learning new things about it and improving my vim-skills.</p>
 <h2 id="how-i-learned-ruby-on-rails">How I learned Ruby on Rails</h2>
 <ul>
 <li>I read (and practiced) the <a href="http://pragprog.com/book/rails4/agile-web-development-with-rails">Agile Web Development with Rails
-book</a>. It&#39;s
+book</a>. It&#x27;s
 also highly recommended by the ruby on rails official home page.</li>
-<li>I think I learned the most about Rails by subscribing to Gary Bernhardt&#39;s
+<li>I think I learned the most about Rails by subscribing to Gary Bernhardt&#x27;s
 <a href="https://www.destroyallsoftware.com/">Destroy All Software</a> screencasts. All
 of his screencasts are about 10 minutes long, very straightforward and
 condensed with information and techniques. In addition to improving my RoR
 skills, these screencasts have given me a much better understanding of TDD.</li>
 <li>Another screencasts web site for RoR is
 <a href="http://railscasts.com/">railscasts.com/</a>, I started watching their free
-screencasts and I&#39;m considering subscribing to them too.</li>
+screencasts and I&#x27;m considering subscribing to them too.</li>
 </ul>
 <p>Hope you enjoyed this post, I know I did :-) Thanks for reading,</p>
-<p>David.</p>
-</div><div class="e-post__next"><span>Next:</span><a href="/2012/06/exporting-hebrew-contacts-from-motorola.html">Exporting (hebrew) contacts from a Motorola i876 phone</a></div></div></div><style type="text/css">@import "/style.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');</style></body></html>
+<p>David.</p></div></div><div class="e-post__next"><span>Next:</span><a class="e-post__next" href="/2012/02/how-do-i-with-git.html">How do I ??? with Git?</a></div></div><style type="text/css">
+          @import "/style.css";
+          @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
+          </style></body></html>

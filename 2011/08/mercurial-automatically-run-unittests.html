@@ -1,48 +1,61 @@
-<html><head><title>Mercurial: Automatically run unittests before commit | David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Mercurial: Automatically run unittests before commit"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2011/08/mercurial-automatically-run-unittests.html"/><meta property="og:site_name" content="David Elentok's Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Mercurial: Automatically run unittests before commit"/><meta name="twitter:image" content="http://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">body {
-  font-family: sans-serif;
-  background: #242424;
-  color: #e9e9e9;
-  font-size: 18px;
-  line-height: 1.5;
-}
+<html><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><title>Mercurial: Automatically run unittests before commit | David Elentok&#x27;s Blog</title><meta property="og:title" content="Mercurial: Automatically run unittests before commit"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image"/><meta property="og:url" content="https://blog.elentok.com/2011/08/mercurial-automatically-run-unittests.html"/><meta property="og:site_name" content="David Elentok&#x27;s Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Mercurial: Automatically run unittests before commit"/><meta name="twitter:image" content="https://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">
+      body {
+        font-family: sans-serif;
+        background: #242424;
+        color: #e9e9e9;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-a, a:visited {
-  color: #98adec;
-}
+      a, a:visited {
+        color: #98adec;
+      }
 
-.e-container {
-  margin: auto;
-  max-width: 700px;
-  padding: 15px;
-}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Mercurial: Automatically run unittests before commit</h1><div class="e-post__date">August 17th, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/python.html">python</a><a class="e-post-tag" href="/tags/mercurial.html">mercurial</a><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow
-committing unless the unit tests pass you can use the &quot;precommit&quot; hook.</p>
+      a:hover {
+        color: #c5d2f9;
+      }
+
+      .e-container {
+        margin: auto;
+        max-width: 700px;
+        padding: 15px;
+      }
+      </style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok&#x27;s Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Mercurial: Automatically run unittests before commit</h1><div class="e-post__date">August 17, 2011</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/programming.html">programming</a><a class="e-post-tag" href="/tags/python.html">python</a><a class="e-post-tag" href="/tags/mercurial.html">mercurial</a><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p>To force Mercurial to run your unit tests before each commit and not to allow committing unless the
+unit tests pass you can use the &quot;precommit&quot; hook.</p>
 <p>In the repository root, edit the &quot;.hg\hgrc&quot; file and add the following lines:</p>
-<pre><code>[hooks]
-precommit = path-<span class="hljs-keyword">to</span>-tests-<span class="hljs-keyword">script</span>
-            (e.g. <span class="hljs-string">"qtodotxt\test\runtests.py"</span>)
-</code></pre><!--more-->
-<p>It is very important that if the unit tests fail the script will return an
-non-zero exit code, in the QTodoTxt test-runner script (you can the source
-<a href="https://bitbucket.org/3david/qtodotxt/src/00db3d914c57/qtodotxt/test/runtests.py">here</a> I do the following:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-rc" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>[hooks]
+</span>precommit = path-to-tests-script
+<!-- -->            (e.g. &quot;qtodotxt\test\runtests.py&quot;)</code></div></pre>
+<p>It is very important that if the unit tests fail the script will return an non-zero exit code, in
+the QTodoTxt test-runner script (you can the source <a href="https://bitbucket.org/3david/qtodotxt/src/00db3d914c57/qtodotxt/test/runtests.py">here</a> I do the following:</p>
 <ul>
-<li>Initialize an &quot;exit_code&quot; variable to 0</li>
-<li><p>I run the standard python unittests:</p>
-<pre><code>tests = unittest.defaultTestLoader.discover(<span class="hljs-string">'.'</span>,
-        pattern=<span class="hljs-string">'test*.py'</span>)
-
-<span class="hljs-built_in">result</span> = unittest.TextTestRunner(verbosity=<span class="hljs-number">2</span>).run(tests)
-<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">result</span>.wasSuccessful():
-  exit_code = <span class="hljs-number">1</span>
-</code></pre></li>
-<li>Then I run the doctests:<pre><code><span class="hljs-keyword">for</span> doctest_file <span class="hljs-keyword">in</span> os.listdir(testsdir):
-  <span class="hljs-keyword">if</span> doctest_file.endswith(<span class="hljs-string">'.doctest'</span>):
-    result = doctest.testfile(
-        os<span class="hljs-selector-class">.path</span><span class="hljs-selector-class">.join</span>(testsdir, doctest_file))
-    <span class="hljs-keyword">if</span> result<span class="hljs-selector-class">.failed</span> &gt; <span class="hljs-number">0</span>:
-      exit_code = <span class="hljs-number">2</span>
-</code></pre></li>
-<li>And at the end I use the <code>sys.exit</code> method to return the correct exit code:<pre><code>sys.<span class="hljs-keyword">exit</span>(exit_code)
-</code></pre></li>
+<li>
+<p>Initialize an &quot;exit_code&quot; variable to 0</p>
+</li>
+<li>
+<p>I run the standard python unittests:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-py" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>tests </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> unittest</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>defaultTestLoader</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>discover</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token" style="color:hsl(95, 38%, 62%)">&#x27;.&#x27;</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span>
+</span><span>        pattern</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span class="token" style="color:hsl(95, 38%, 62%)">&#x27;test*.py&#x27;</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span>
+</span>
+<span>result </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> unittest</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>TextTestRunner</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>verbosity</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span class="token" style="color:hsl(29, 54%, 61%)">2</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>run</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>tests</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span>
+</span><span></span><span class="token" style="color:hsl(286, 60%, 67%)">if</span><span> </span><span class="token" style="color:hsl(286, 60%, 67%)">not</span><span> result</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>wasSuccessful</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>  exit_code </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">1</span></code></div></pre>
+</li>
+<li>
+<p>Then I run the doctests:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-py" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(286, 60%, 67%)">for</span><span> doctest_file </span><span class="token" style="color:hsl(286, 60%, 67%)">in</span><span> os</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>listdir</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>testsdir</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>  </span><span class="token" style="color:hsl(286, 60%, 67%)">if</span><span> doctest_file</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>endswith</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span class="token" style="color:hsl(95, 38%, 62%)">&#x27;.doctest&#x27;</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>    result </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> doctest</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>testfile</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>
+</span><span>        os</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>path</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>join</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>testsdir</span><span class="token" style="color:hsl(220, 14%, 71%)">,</span><span> doctest_file</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span>
+</span><span>    </span><span class="token" style="color:hsl(286, 60%, 67%)">if</span><span> result</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>failed </span><span class="token" style="color:hsl(207, 82%, 66%)">&gt;</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">0</span><span class="token" style="color:hsl(220, 14%, 71%)">:</span><span>
+</span><span>      exit_code </span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span> </span><span class="token" style="color:hsl(29, 54%, 61%)">2</span></code></div></pre>
+</li>
 </ul>
-</div><div class="e-post__next"><span>Next:</span><a href="/2011/09/restart-windows-file-sharing-service-to.html">Restart the Windows File Sharing Service to fix weird problems</a></div></div></div><style type="text/css">@import "/style.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');</style></body></html>
+<ul>
+<li>And at the end I use the <code>sys.exit</code> method to return the correct exit code:
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-py" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>sys</span><span class="token" style="color:hsl(220, 14%, 71%)">.</span><span>exit</span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>exit_code</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span></code></div></pre>
+</li>
+</ul></div></div><div class="e-post__next"><span>Next:</span><a class="e-post__next" href="/2011/08/tip-removing-changset-from-mercurial.html">Tip: Removing a changset from a Mercurial repository</a></div></div><style type="text/css">
+          @import "/style.css";
+          @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
+          </style></body></html>

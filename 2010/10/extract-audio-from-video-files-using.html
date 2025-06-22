@@ -1,35 +1,40 @@
-<html><head><title>Extract audio from video files using VLC | David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Extract audio from video files using VLC"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2010/10/extract-audio-from-video-files-using.html"/><meta property="og:site_name" content="David Elentok's Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Extract audio from video files using VLC"/><meta name="twitter:image" content="http://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">body {
-  font-family: sans-serif;
-  background: #242424;
-  color: #e9e9e9;
-  font-size: 18px;
-  line-height: 1.5;
-}
+<html><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><title>Extract audio from video files using VLC | David Elentok&#x27;s Blog</title><meta property="og:title" content="Extract audio from video files using VLC"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image"/><meta property="og:url" content="https://blog.elentok.com/2010/10/extract-audio-from-video-files-using.html"/><meta property="og:site_name" content="David Elentok&#x27;s Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Extract audio from video files using VLC"/><meta name="twitter:image" content="https://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">
+      body {
+        font-family: sans-serif;
+        background: #242424;
+        color: #e9e9e9;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-a, a:visited {
-  color: #98adec;
-}
+      a, a:visited {
+        color: #98adec;
+      }
 
-.e-container {
-  margin: auto;
-  max-width: 700px;
-  padding: 15px;
-}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Extract audio from video files using VLC</h1><div class="e-post__date">October 20th, 2010</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p>You can use the following command to extract audio from a video file using
+      a:hover {
+        color: #c5d2f9;
+      }
+
+      .e-container {
+        margin: auto;
+        max-width: 700px;
+        padding: 15px;
+      }
+      </style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok&#x27;s Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Extract audio from video files using VLC</h1><div class="e-post__date">October 20, 2010</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/tips.html">tips</a></div><div class="e-post__body"><p>You can use the following command to extract audio from a video file using
 <a href="http://www.videolan.org/">VLC</a>:</p>
-<pre><code class="lang-shell"><span class="hljs-meta">$</span><span class="bash"> vlc <span class="hljs-string">"Source File"</span> \</span>
-    --sout #transcode{acodec=mp3}\
-    :duplicate{dst=std{access=file,\
-    mux=raw,dst="Output.mp3",select=novideo}}
-</code></pre>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-shell" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>$ vlc </span><span class="token" style="color:hsl(95, 38%, 62%)">&quot;Source File&quot;</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">\</span><span>
+</span><span>    --sout </span><span class="token" style="color:hsl(220, 10%, 40%);font-style:italic">#transcode{acodec=mp3}\</span><span>
+</span><span>    :duplicate</span><span class="token" style="color:hsl(220, 14%, 71%)">{</span><span>dst</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>std</span><span class="token" style="color:hsl(220, 14%, 71%)">{</span><span>access</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>file,</span><span class="token" style="color:hsl(220, 14%, 71%)">\</span><span>
+</span><span>    </span><span class="token assign-left" style="color:hsl(207, 82%, 66%)">mux</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>raw,dst</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span class="token" style="color:hsl(95, 38%, 62%)">&quot;Output.mp3&quot;</span><span>,select</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>novideo</span><span class="token" style="color:hsl(220, 14%, 71%)">}</span><span class="token" style="color:hsl(220, 14%, 71%)">}</span></code></div></pre>
 <p>(<strong>Important!: The argument of &quot;--sout&quot; must have no spaces in it (except for in
 the &quot;dst&quot; attribute</strong>).</p>
 <p>To only extract a segment of audio use the following command:</p>
-<pre><code class="lang-shell"><span class="hljs-meta">$</span><span class="bash"> vlc <span class="hljs-string">"Source File"</span> \</span>
-  --start-time=&lt;start time (in seconds)&gt; \
-  --stop-time=&lt;stop time (in seconds)&gt; \
-  --sout #transcode{acodec=mp3}\
-    :duplicate{dst=std{access=file,mux=raw,\
-    dst="Output.mp3",select=novideo}}
-</code></pre>
-</div><div class="e-post__next"><span>Next:</span><a href="/2010/10/record-stream-using-vlc.html">Record a stream using VLC</a></div></div></div><style type="text/css">@import "/style.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');</style></body></html>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-shell" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>$ vlc </span><span class="token" style="color:hsl(95, 38%, 62%)">&quot;Source File&quot;</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">\</span><span>
+</span><span>  --start-time</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span>start </span><span class="token" style="color:hsl(207, 82%, 66%)">time</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>in seconds</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(207, 82%, 66%)">&gt;</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">\</span><span>
+</span><span>  --stop-time</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span class="token" style="color:hsl(207, 82%, 66%)">&lt;</span><span>stop </span><span class="token" style="color:hsl(207, 82%, 66%)">time</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">(</span><span>in seconds</span><span class="token" style="color:hsl(220, 14%, 71%)">)</span><span class="token" style="color:hsl(207, 82%, 66%)">&gt;</span><span> </span><span class="token" style="color:hsl(220, 14%, 71%)">\</span><span>
+</span><span>  --sout </span><span class="token" style="color:hsl(220, 10%, 40%);font-style:italic">#transcode{acodec=mp3}\</span><span>
+</span><span>    :duplicate</span><span class="token" style="color:hsl(220, 14%, 71%)">{</span><span>dst</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>std</span><span class="token" style="color:hsl(220, 14%, 71%)">{</span><span>access</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>file,mux</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>raw,</span><span class="token" style="color:hsl(220, 14%, 71%)">\</span><span>
+</span><span>    </span><span class="token assign-left" style="color:hsl(207, 82%, 66%)">dst</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span class="token" style="color:hsl(95, 38%, 62%)">&quot;Output.mp3&quot;</span><span>,select</span><span class="token" style="color:hsl(207, 82%, 66%)">=</span><span>novideo</span><span class="token" style="color:hsl(220, 14%, 71%)">}</span><span class="token" style="color:hsl(220, 14%, 71%)">}</span></code></div></pre></div></div><div class="e-post__next"><span>Next:</span><a class="e-post__next" href="/2010/08/reset-ntfs-permissions.html">Reset NTFS permissions</a></div></div><style type="text/css">
+          @import "/style.css";
+          @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
+          </style></body></html>

@@ -1,35 +1,41 @@
-<html><head><title>Making the items in a WPF ItemsControl stretch | David Elentok's Blog</title><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><meta property="og:title" content="Making the items in a WPF ItemsControl stretch"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image" content="http://blog.elentok.com/avatar-og.png"/><meta property="og:url" content="http://blog.elentok.com/2010/04/making-items-in-wpf-itemscontrol.html"/><meta property="og:site_name" content="David Elentok's Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Making the items in a WPF ItemsControl stretch"/><meta name="twitter:image" content="http://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">body {
-  font-family: sans-serif;
-  background: #242424;
-  color: #e9e9e9;
-  font-size: 18px;
-  line-height: 1.5;
-}
+<html><head><meta charSet="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/><title>Making the items in a WPF ItemsControl stretch | David Elentok&#x27;s Blog</title><meta property="og:title" content="Making the items in a WPF ItemsControl stretch"/><meta property="og:description"/><meta property="og:type" content="article"/><meta property="og:image"/><meta property="og:url" content="https://blog.elentok.com/2010/04/making-items-in-wpf-itemscontrol.html"/><meta property="og:site_name" content="David Elentok&#x27;s Blog"/><meta name="twitter:card" content="summary"/><meta name="twitter:site" content="@elentok"/><meta name="twitter:title" content="Making the items in a WPF ItemsControl stretch"/><meta name="twitter:image" content="https://blog.elentok.com/avatar-og.png"/><meta name="twitter:description"/><style type="text/css">
+      body {
+        font-family: sans-serif;
+        background: #242424;
+        color: #e9e9e9;
+        font-size: 18px;
+        line-height: 1.5;
+      }
 
-a, a:visited {
-  color: #98adec;
-}
+      a, a:visited {
+        color: #98adec;
+      }
 
-.e-container {
-  margin: auto;
-  max-width: 700px;
-  padding: 15px;
-}</style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok's Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Making the items in a WPF ItemsControl stretch</h1><div class="e-post__date">April 1st, 2010</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/tips.html">tips</a><a class="e-post-tag" href="/tags/wpf.html">wpf</a></div><div class="e-post__body"><p>I used the layout I described in a <a href="/2010/03/3-pane-layout-in-wpf.html">previous post</a> in a <a href="http://msdn.microsoft.com/en-us/library/dd458809.aspx">Prism</a>-based
-application where I used <code>ItemsControl</code> objects for regions, and the views I
-attached to them didn&#39;t stretch to fill the <code>ItemsControl</code>.</p>
-<p>After some research I found the following solution: replace the default items
-panel template with a <code>DockPanel</code>.</p>
-<!--more-->
-<p>Here&#39;s the code:</p>
-<pre><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">ItemsControl</span>
-  <span class="hljs-attr">Name</span>=<span class="hljs-string">"MainRegion"</span>
-  <span class="hljs-attr">cal:RegionManager.RegionName</span>=<span class="hljs-string">"</span></span></span><span class="hljs-template-variable">{x:Static common:RegionNames.Main}</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">"</span>
-  <span class="hljs-attr">Grid.Column</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">Grid.Row</span>=<span class="hljs-string">"1"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">ItemsControl.ItemsPanel</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ItemsPanelTemplate</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">DockPanel</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">ItemsPanelTemplate</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">ItemsControl.ItemsPanel</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">ItemsControl</span>&gt;</span></span>
-</code></pre></div><div class="e-post__next"><span>Next:</span><a href="/2010/04/how-to-use-your-ipod-touch-as-alarm.html">How to use your iPod Touch as an alarm clock</a></div></div></div><style type="text/css">@import "/style.css";
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');</style></body></html>
+      a:hover {
+        color: #c5d2f9;
+      }
+
+      .e-container {
+        margin: auto;
+        max-width: 700px;
+        padding: 15px;
+      }
+      </style></head><body><div class="e-container"><a class="e-header" href="/"><div class="e-header__avatar"><div class="e-avatar"></div></div><h2>Elentok&#x27;s Blog</h2></a><div class="e-about-me"><a href="http://elentok.com">About me</a></div><div class="e-post e-post--full"><h1 class="e-post__title">Making the items in a WPF ItemsControl stretch</h1><div class="e-post__date">April 1, 2010</div><div class="e-post__tags"><a class="e-post-tag" href="/tags/tips.html">tips</a><a class="e-post-tag" href="/tags/wpf.html">wpf</a></div><div class="e-post__body"><p>I used the layout I described in a <a href="/2010/03/3-pane-layout-in-wpf.html">previous post</a> in a <a href="http://msdn.microsoft.com/en-us/library/dd458809.aspx">Prism</a>-based application where I used
+<code>ItemsControl</code> objects for regions, and the views I attached to them didn&#x27;t stretch to fill the
+<code>ItemsControl</code>.</p>
+<p>After some research I found the following solution: replace the default items panel template with a
+<code>DockPanel</code>.</p>
+<p>Here&#x27;s the code:</p>
+<pre><div style="background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:0.5em 0;overflow:auto;border-radius:0.3em"><code class="language-xml" style="white-space:pre;background:hsl(220, 13%, 18%);color:hsl(220, 14%, 71%);text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:&quot;Fira Code&quot;, &quot;Fira Mono&quot;, Menlo, Consolas, &quot;DejaVu Sans Mono&quot;, monospace;direction:ltr;text-align:left;word-spacing:normal;word-break:normal;line-height:1.5;-moz-tab-size:2;-o-tab-size:2;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">ItemsControl</span><span class="token" style="color:hsl(355, 65%, 65%)">
+</span><span class="token" style="color:hsl(355, 65%, 65%)">  </span><span class="token" style="color:hsl(29, 54%, 61%)">Name</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">MainRegion</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(355, 65%, 65%)">
+</span><span class="token" style="color:hsl(355, 65%, 65%)">  </span><span class="token" style="color:hsl(29, 54%, 61%);-opacity:0.8">cal:</span><span class="token" style="color:hsl(29, 54%, 61%)">RegionManager.RegionName</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">{x:Static common:RegionNames.Main}</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(355, 65%, 65%)">
+</span><span class="token" style="color:hsl(355, 65%, 65%)">  </span><span class="token" style="color:hsl(29, 54%, 61%)">Grid.Column</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">2</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(29, 54%, 61%)">Grid.Row</span><span class="token" style="color:hsl(220, 14%, 71%)">=</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(95, 38%, 62%)">1</span><span class="token" style="color:hsl(220, 14%, 71%)">&quot;</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>  </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">ItemsControl.ItemsPanel</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>    </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">ItemsPanelTemplate</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>      </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;</span><span class="token" style="color:hsl(355, 65%, 65%)">DockPanel</span><span class="token" style="color:hsl(355, 65%, 65%)"> </span><span class="token" style="color:hsl(220, 14%, 71%)">/&gt;</span><span>
+</span><span>    </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">ItemsPanelTemplate</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span>  </span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">ItemsControl.ItemsPanel</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span><span>
+</span><span></span><span class="token" style="color:hsl(220, 14%, 71%)">&lt;/</span><span class="token" style="color:hsl(355, 65%, 65%)">ItemsControl</span><span class="token" style="color:hsl(220, 14%, 71%)">&gt;</span></code></div></pre></div></div><div class="e-post__next"><span>Next:</span><a class="e-post__next" href="/2010/03/data-binding-selecteditem-property-of.html">Data-binding the SelectedItem property of the WPF TreeView</a></div></div><style type="text/css">
+          @import "/style.css";
+          @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro');
+          </style></body></html>
